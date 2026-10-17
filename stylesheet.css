@@ -1,0 +1,84 @@
+/* Aadya's maker portfolio stylesheet */
+
+body {
+  background-color: #dfe8f5;
+  color: black;
+  font-family: serif;
+  font-size: 16px;
+  margin: 0;
+  padding: 10px 20px 40px 20px;
+}
+
+a {
+  color: #234a7a;
+}
+
+a:visited {
+  color: #5a3b73;
+}
+
+.nav {
+  text-align: right;
+  font-size: 18px;
+}
+
+.main {
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 32px;
+  margin-bottom: 4px;
+  color: #233b5e;
+}
+
+h2 {
+  margin-top: 40px;
+  color: #345b86;
+}
+
+h3 {
+  color: #345b86;
+}
+
+table {
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  border-top: 1px solid #aabbd1;
+}
+
+td {
+  vertical-align: top;
+  padding: 8px 15px 8px 0;
+}
+
+img.photo {
+  width: 600px;
+  max-width: 100%;
+  border: 1px solid #888;
+}
+
+img.small {
+  width: 290px;
+  max-width: 100%;
+  border: 1px solid #888;
+}
+
+video {
+  width: 600px;
+  max-width: 100%;
+}
+
+.caption {
+  font-style: italic;
+  font-size: 14px;
+  margin-top: 2px;
+  color: #43536a;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #999;
+  margin: 30px 0;
+}
