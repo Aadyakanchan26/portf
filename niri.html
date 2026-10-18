@@ -1,66 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NIRI - Aadya Kanchan</title>
-<link rel="stylesheet" href="stylesheet.css">
-</head>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>NIRI | Aadya Kanchan — Maker Portfolio</title><link rel="stylesheet" href="stylesheet.css"></head>
 <body>
-<div class="nav"><a href="index.html">Home</a></div>
-<div class="main">
-<h1>NIRI</h1>
-<p>I started NIRI in 2023, when I opened the tap one morning and nothing came out. Five of the six borewells in our society had dried up, and we were getting water through tankers. There were plenty of ideas for saving water, but they often needed large infrastructure changes, cost too much, or belonged to someone else—the government or the housing society.</p>
-<p>I wanted water conservation to feel simple and intuitive: something people could do every day without feeling that they were doing something extraordinary. NIRI is named after <i>Neeru</i>, the Kannada word for water.</p>
+<nav class="nav"><a href="index.html">Aadya Kanchan</a><a href="#overview">System</a><a href="#journey">Build</a><a href="#testing">Testing</a><a href="#pilots">Pilots</a><a href="#validation">Validation</a></nav>
+<header class="niri-hero"><div><p class="eyebrow">Aadya Kanchan / Mechatronics · IoT · Water Conservation</p><h1>NIRI<br>Small changes.<br>Every day.</h1><p>A patented, IoT-enabled mechatronic water conservation system.</p><p><a href="#overview">Explore the system ↓</a></p><img src="images/niri/niri-device.jpg" alt="NIRI water conservation device with valve and gear mechanism"><div class="caption">NIRI device with the valve and gear mechanism.</div></div></header>
+<section class="chapter"><div class="niri-stats"><div><strong>6</strong><span>iterations</span></div><div><strong>3</strong><span>years</span></div><div><strong>5</strong><span>modes</span></div><div><strong>25+</strong><span>units</span></div></div></section>
 
-<table>
-<tr>
-<td><img class="photo" src="images/niri/niri-device.jpg" alt="NIRI water-conservation device with valve and gears"><div class="caption">The NIRI device, with the ball-valve mechanism and exposed gears.</div></td>
-<td><h2>What I was trying to build</h2><p>NIRI is a patented, IoT-enabled mechatronic water-conservation system. It is a plug-in extension module for an existing tap or pipeline. A gear system turns a ball valve to precise angles for flow control; the system also includes leak detection, automatic shut-off, and behaviour-driven nudges.</p><p>The question behind it was: how can individuals participate in water conservation, and how can technology help change behaviour patterns and increase awareness?</p></td>
-</tr>
-</table>
+<section class="chapter sage" id="overview"><div class="chapter-grid"><div><p class="section-no">01 / System</p><h2>System Overview</h2><p class="lede">NIRI is a patented, IoT-enabled mechatronic water conservation system that cuts wastage through intelligent flow regulation, real-time leak detection, automatic shut-off, and behavior-driven nudges.</p><p>It is built as a plug-in extension module that retrofits onto an existing tap or pipeline. Inside, a gear system drives a ball valve, rotating it to precise angles for fine-grained flow control. Refined over six iterations in three years, the device has five modes tuned to the highest-consumption points. It pairs with an AI water assistant that tracks consumption and uses the most effective methods to cut usage while maintaining comfort.</p></div><div><img src="images/niri/calculator.jpg" alt="NIRI impact calculator interface"><div class="caption">NIRI impact calculator interface.</div><img src="images/niri/app-dashboard.jpg" alt="NIRI dashboard showing water flow"><div class="caption">NIRI dashboard showing water-flow information by mode and time period.</div></div></div></section>
 
-<table>
-<tr>
-<td><p>[ASK: NIRI prototype photo]</p></td>
-<td><h2>Starting from almost nothing</h2><p>I began with very limited hardware and software knowledge. At the ATL lab, I learned about the Arduino microcontroller, its coding language, soldering, and wiring. My first prototype was just an OLED display and a buzzer; when I presented it, the wires burned in what felt like a very theatrical failure.</p><p>That first failure was useful. Over six iterations, I adapted the power supply for longer battery life when there was no direct electricity connection, simplified the controls, and completely rethought the blocking mechanism.</p></td>
-</tr>
-</table>
+<section class="chapter" id="purpose"><div class="chapter-grid"><div><p class="section-no">02 / Purpose</p><h2>Inspiration</h2><p class="lede">It all began in the summer of 2023, when I was 13. I turned on the tap, and not a single drop came out.</p></div><div><p>From my balcony, I watched tanker after tanker arrive; our society’s borewells had dried up. There were endless discussions about rainwater harvesting and percolation pits. But nothing changed.</p><p>Bengaluru faces a daily shortage of about 500 million liters of water, and globally, around 4 billion people live under high water stress. Existing fixes kept stalling for the same three reasons: large infrastructure changes, high cost and complexity, and no one taking ownership. Every solution sat at the society or government level, and nothing reached the individual tap.</p><p>In my macro and micro surveys, I found that nearly half of household water loss came from simple misuse rather than scarcity. I wanted conservation to feel like an everyday action, not a distant infrastructure problem.</p><h3>Vision</h3><p>Everyone should be able to save water every day, right at their tap. By pairing affordable technology with behavioral change, I want to make responsible water use a flexible, everyday habit that scales from homes to schools, hospitals, and public infrastructure.</p></div></div></section>
 
-<table>
-<tr>
-<td><img class="photo" src="images/niri/niri-device.jpg" alt="Close view of NIRI gear and valve mechanism"><div class="caption">The later mechanism uses a servo motor, gears, and a ball valve instead of the earlier relay-and-potentiometer setup.</div></td>
-<td><h2>Six iterations</h2><p>The biggest mechanical change was a complete U-turn: I moved from relays and a potentiometer to a servo motor with a gear mechanism and a ball valve. Every iteration taught me something, and I still do not think the journey is over.</p><p><a href="https://drive.google.com/file/d/12nXcTHw3NXIH10kt1pEvJc5K3xOifmCN/view?usp=sharing">Regulation-mode demonstration</a><br><a href="https://drive.google.com/file/d/10tM4W-7tbiTH2-dLqw3DUZJLAqO3DTzz/view?usp=sharing">Leak-mode demonstration</a></p></td>
-</tr>
-</table>
+<section class="chapter sage" id="journey"><div class="chapter-grid"><div><p class="section-no">03 / Journey</p><h2>1. Building the Tech</h2><p class="lede">In the ATL lab, every test and piece of feedback reshaped NIRI.</p><p>I made the power supply self-sufficient with extended battery life for homes without a direct connection, simplified the controls, and rebuilt the blocking mechanism completely, moving from relays and a potentiometer to a servo-driven gear system with a ball valve.</p><p><a href="https://drive.google.com/file/d/12nXcTHw3NXIH10kt1pEvJc5K3xOifmCN/view?usp=sharing">Regulation mode ↗</a><br><a href="https://drive.google.com/file/d/10tM4W-7tbiTH2-dLqw3DUZJLAqO3DTzz/view?usp=sharing">Leak mode ↗</a></p></div><div><img src="images/niri/ProductJourney.jpg" alt="NIRI product journey showing early circuit prototypes, water-test setups, and the current device"><div class="caption">The NIRI journey: early circuit prototypes and water-test setups, leading to the current gear-driven device.</div></div></div></section>
 
-<table>
-<tr>
-<td><img class="photo" src="images/niri/install-hospital.jpg" alt="NIRI installed on exposed hospital plumbing"><div class="caption">A NIRI installation on exposed plumbing.</div></td>
-<td><h2>Stress testing</h2><p>Before putting the device in other people’s homes or an industrial setting, I tested it for water impurities, water temperature, and calibration drift. The goal was to make sure it could keep working across the conditions it would actually face.</p></td>
-</tr>
-</table>
+<section class="chapter" id="testing"><div class="chapter-grid"><div><p class="section-no">04 / Experiments</p><h2>2. Stress Testing</h2><p class="lede">I stress-tested NIRI against water impurities, water temperature, and calibration drift, until it held up in every condition.</p></div><div><img src="images/niri/install-hospital.jpg" alt="NIRI installed on exposed plumbing"><div class="caption">An installed NIRI setup on exposed plumbing.</div><p>These were the three variables I tracked because there was no scope for the device to falter in people’s homes or an industrial setting.</p></div></div></section>
 
-<table>
-<tr>
-<td><img class="photo" src="images/niri/install-canteen.jpg" alt="Aadya installing NIRI in a ceiling pipe at a school canteen"><div class="caption">Installing NIRI at the Vidyashilp Academy school canteen.</div></td>
-<td><h2>Deploying and piloting</h2><p>The first pilot was at my school canteen, Vidyashilp Academy. I was honestly anxious that the pipe would burst or the gears would buckle under pressure, so I checked on it every hour. My teachers definitely thought something was wrong with me that day.</p><p>From there, NIRI moved into hospitals and homes, where each site gave me different feedback.</p><p><a href="https://drive.google.com/file/d/1Yz2kQnET9qEdNeCrjRLzsoGUVBXP1Z5u/view?usp=sharing">Canteen demonstration</a><br><a href="https://drive.google.com/file/d/1hLYgoSemC35hELKsL-rCfxYbWH9mLlV1/view?usp=sharing">Installation explanation</a></p></td>
-</tr>
-</table>
+<section class="chapter sage" id="pilots"><div class="chapter-grid"><div><p class="section-no">05 / Field Work</p><h2>3. Deploying and Piloting</h2><p class="lede">The first pilot was my school canteen at Vidyashilp Academy.</p><p>I was so worried the gears would buckle under pipe pressure that I checked on it every hour, and my teachers were sure something was wrong with me. From there, NIRI moved into hospitals and homes, where each site gave me different feedback.</p><p><a href="https://drive.google.com/file/d/1Yz2kQnET9qEdNeCrjRLzsoGUVBXP1Z5u/view?usp=sharing">Vidyashilp canteen video ↗</a><br><a href="https://drive.google.com/file/d/1hLYgoSemC35hELKsL-rCfxYbWH9mLlV1/view?usp=sharing">Installation explanation ↗</a></p></div><div><img src="images/niri/install-canteen.jpg" alt="Aadya installing NIRI at the school canteen"><div class="caption">Installing NIRI at Vidyashilp Academy.</div><img src="images/niri/school-demo.jpg" alt="Aadya demonstrating NIRI to students"><div class="caption">School pilot demonstration.</div></div></div></section>
 
-<table>
-<tr>
-<td><img class="photo" src="images/niri/field-engineers.jpg" alt="Aadya presenting the NIRI device to a group of engineers"><div class="caption">Presenting NIRI and its working mechanism to engineers.</div></td>
-<td><h2>Motor paranoia</h2><p>At a government demonstration, just as I began presenting, I heard the low rumble of my motor failing. Fifteen engineers were staring at me and I could not complete the demonstration. I asked to return the next day, then successfully demonstrated the device and its results.</p><p>I now carry an extra set of every component wherever I go. I call it “motor paranoia.”</p></td>
-</tr>
-</table>
+<section class="chapter" id="validation"><div class="chapter-grid"><div><p class="section-no">06 / Validation</p><h2>4. Validation</h2><p class="lede">Mid-demo before 15 government civil engineers, I heard the familiar low rumble of a failing motor, and the demonstration stopped.</p></div><div><p>I asked for a second day, came back, and earned technical validation for the device achieving up to 30% reduction. Now I carry a spare of every component, which I call my “motor paranoia.”</p><img src="images/niri/field-engineers.jpg" alt="Aadya presenting NIRI to a group of engineers"><div class="caption">Presenting the working mechanism to engineers.</div><h3>5. IP</h3><p>Patent granted on 3 June 2026 (Patent No. 591067; Application No. 202441093699).</p></div></div></section>
 
-<table>
-<tr>
-<td><img class="photo" src="images/niri/app-dashboard.jpg" alt="NIRI water-flow dashboard"><div class="caption">The NIRI dashboard displays water-flow information by time period and mode.</div></td>
-<td><h2>What stayed with me</h2><p>NIRI taught me that even the best technology fails if people do not adopt it. Solving big problems does not always take grand gestures; sometimes it takes a simple, efficient solution that makes small changes every day.</p></td>
-</tr>
-</table>
-</div>
-</body>
-</html>
+<section class="chapter dark" id="impact"><div><p class="section-no">07 / Impact</p><p class="quote">NIRI taught me that even the best technology fails if people don’t adopt it. Solving big problems doesn’t always take grand gestures. Sometimes it takes simple, efficient solutions that create small changes every day.</p></div></section>
+</body></html>
