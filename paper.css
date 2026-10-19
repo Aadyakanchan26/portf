@@ -41,6 +41,11 @@ video.photo { background: #000; }
 img.tile { aspect-ratio: 4 / 3; object-fit: cover; }
 img.tall { aspect-ratio: 3 / 4; object-fit: cover; }
 
+/* Home page: one thumbnail per project, all the same visual weight,
+   never cropped and never blown up past their real size. */
+table.idx td:first-child { width: 60%; }
+img.thumb { width: auto; max-width: 100%; max-height: 230px; }
+
 /* A grid of two or three across, for a run of related images. */
 table.g2 td { width: 50%; }
 table.g3 td { width: 33.33%; }
