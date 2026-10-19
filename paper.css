@@ -36,14 +36,31 @@ li { margin-bottom: 0.3em; }
 /* Every picture sits in the same box, so the rows always line up.
    Photographs fill it; drawings and scans sit inside it uncropped. */
 table.grid { margin: 0 0 1.2em; border-collapse: collapse; }
-table.grid td { padding: 0 14px 14px 0; vertical-align: top; }
+table.grid td { padding: 0 16px 16px 0; vertical-align: top; }
 
-/* One fixed picture size for the whole site, so a row of one, two or three
-   all show the same thing and nothing has to be padded out with blanks. */
-.frame { display: block; width: 286px; height: 202px; background: #fff; border: 1px solid #e6e2d6; }
-.caption { max-width: 286px; }
-table.grid.four .frame, table.grid.four .caption { width: 205px; height: auto; }
-table.grid.four .frame { height: 145px; }
+/* One fixed picture size for the whole site, two to a row, so handwriting and
+   schematics are legible without any picture dominating the page. */
+.frame { display: block; width: 400px; height: 280px; background: #fff; border: 1px solid #e6e2d6; }
+.caption { max-width: 400px; }
+
+/* Handwriting, calculations and schematics get the full column width,
+   so the working can actually be read. */
+td.full { width: 100%; }
+img.scanbig { display: block; width: 100%; height: auto; margin: 0; background: #fff; border: 1px solid #e6e2d6; }
+td.full .caption { max-width: none; }
+
+
+/* Home page: the picture sits beside its text and stretches to exactly the
+   height of that text, so the two columns always finish on the same line. */
+.side { display: flex; align-items: stretch; gap: 26px; margin: 0 0 1.8em; }
+.side .words { flex: 1 1 auto; min-width: 0; }
+.side .words p:last-child { margin-bottom: 0; }
+.side .pic { flex: 0 0 300px; display: flex; flex-direction: column; }
+/* flex-basis 0 so the picture takes the height the text gives it,
+   rather than the row growing to the picture's own height. */
+.side .frame { width: 100%; height: auto; flex: 1 1 0; min-height: 150px; }
+.side .pic { overflow: hidden; }
+.side .caption { width: 100%; max-width: none; margin-top: 6px; }
 .frame img, .frame video { display: block; width: 100%; height: 100%; object-fit: contain; }
 .frame.photo img, .frame.photo video { object-fit: cover; }
 
@@ -56,5 +73,10 @@ table.grid.four .frame { height: 145px; }
   .tabs a { display: inline-block; margin: 0 14px 6px 0; }
   table.grid, table.grid tbody, table.grid tr, table.grid td { display: block; width: 100%; }
   table.grid td { padding: 0 0 14px 0; }
+  .side { display: block; }
+  .side .pic { margin-top: 10px; }
+  /* A phone is narrower than the fixed frame, so let it shrink to fit. */
+  .frame, .caption { width: 100%; max-width: 100%; }
+  .frame, .side .frame { height: 230px; flex: none; }
   .frame { height: 220px; }
 }
