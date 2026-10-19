@@ -9,21 +9,27 @@
 <body>
 <div class="content">
 
-<div class="header"><h1>Groundwater mapping in Bangarpet</h1><a href="index.html">Home</a></div>
+<div class="header"><h1>Groundwater mapping in Bangarpet</h1></div>
+<div class="tabs">
+<a href="index.html">Home</a>
+<a href="aquaflux.html">AquaFlux</a>
+<a href="niri.html">NIRI</a>
+<a href="arogya.html">Arogya Dx</a>
+<a href="gis.html" class="here">GIS</a>
+</div>
 
 <h2>Research Overview</h2>
 
-<p class="intro">Bangarpet is a drought-prone, semi-arid town near my city, Bengaluru, where farming and households depend almost entirely on groundwater. Under the guidance of Dr. Praveena, Project Associate at KSCST (Karnataka State Council for Science &amp; Technology), I carried out a GIS-based study that combined field data with spatial analysis to map seasonal shifts in groundwater levels and identify where recharge is most viable.</p>
+<p>Bangarpet is a drought-prone, semi-arid town near my city, Bengaluru, where farming and households depend almost entirely on groundwater. Under the guidance of Dr. Praveena, Project Associate at KSCST (Karnataka State Council for Science &amp; Technology), I carried out a GIS-based study that combined field data with spatial analysis to map seasonal shifts in groundwater levels and identify where recharge is most viable.</p>
 
 <h3>1) Study area</h3>
 
-<table>
+<p>Study area: 541.31 km&sup2;, with static water levels measured at 10 sampling locations during the 2024 pre- and post-monsoon periods.</p>
+
+<table class="grid">
 <tr>
 <td>
-<p>Study area: 541.31 km&sup2;, with static water levels measured at 10 sampling locations during the 2024 pre- and post-monsoon periods.</p>
-</td>
-<td>
-<img class="photo" src="gis/study-area-map.png" alt="Location maps nesting India, Kolar district and Bangarpet Taluk, with a scale bar">
+<a class="frame" href="gis/study-area-map.png"><img src="gis/study-area-map.png" alt="Location maps nesting India, Kolar district and Bangarpet Taluk, with a scale bar"></a>
 <p class="caption">The study area: Bangarpet Taluk within Kolar district, Karnataka.</p>
 </td>
 </tr>
@@ -33,8 +39,14 @@
 
 <p>Water depth ranged from 5.74 to 77.6 mbgl before the monsoon. Severe depletion was concentrated in the northwest, while the south and east stayed shallower. After the monsoon, a deep pocket of 70 to 85 mbgl persisted in the northwest.</p>
 
-<img class="photo wide" src="gis/water-level-maps.png" alt="Four interpolated maps: depth of water level pre-monsoon and post-monsoon 2024, and groundwater level fluctuation of Bangarpet Taluk">
+<table class="grid">
+<tr>
+<td>
+<a class="frame" href="gis/water-level-maps.png"><img src="gis/water-level-maps.png" alt="Four interpolated maps: depth of water level pre-monsoon and post-monsoon 2024, and groundwater level fluctuation of Bangarpet Taluk"></a>
 <p class="caption">Depth of water level pre-monsoon (2024) and post-monsoon (2024), with the resulting groundwater level fluctuation maps beside them.</p>
+</td>
+</tr>
+</table>
 
 <p class="ask">[ASK: do you have these four figures at full size? Even across the full width the legends are hard to read, and they are the main result of the spatial analysis.]</p>
 
@@ -46,55 +58,59 @@
 
 <p>In ArcGIS, I built a groundwater recharge potential index with a weighted linear combination of eight thematic layers. Slope, geology, and geomorphology carried the most weight (21% each), followed by lineament density (11%), with land use, soil texture, depth to water level, and drainage density at 6 to 7% each. Gentle slopes of 0 to 1&deg; ranked highest for recharge suitability.</p>
 
-<img class="photo wide" src="gis/layers-landuse-soil-depth.png" alt="Three thematic maps of Bangarpet Taluk: land use and land cover, soil, and groundwater depth">
-<p class="caption">Land use and land cover, soil, and groundwater level layers.</p>
-
-<img class="photo wide" src="gis/layers-geomorphology-geology.png" alt="Two thematic maps of Bangarpet Taluk: geomorphology and geology">
-<p class="caption">Geomorphology and geology &mdash; two of the three layers carrying 21% weight each.</p>
-
-<img class="photo wide" src="gis/layers-slope-drainage-lineament.png" alt="Three thematic maps of Bangarpet Taluk: slope, drainage density and lineament density">
-<p class="caption">Slope, drainage density and lineament density.</p>
-
-<img class="photo" src="gis/layer-weights.png" alt="Bar chart of relative importance, assigned weights per GIS layer">
-<p class="caption">The assigned weights, layer by layer.</p>
-
-<h2>Outcome</h2>
-
-<table>
+<table class="grid">
 <tr>
 <td>
-<p>The resulting maps pinpoint high-priority recharge zones and support targeted interventions such as tank rejuvenation, desilting, artificial recharge structures, and expanded groundwater monitoring.</p>
-<p><a href="https://budding-innovator.vercel.app/docs/ieee-bhtc-groundwater-gis-ai.pdf">Read the paper</a>.</p>
+<a class="frame" href="gis/layers-landuse-soil-depth.png"><img src="gis/layers-landuse-soil-depth.png" alt="Three thematic maps of Bangarpet Taluk: land use and land cover, soil, and groundwater depth"></a>
+<p class="caption">Land use and land cover, soil, and groundwater level layers.</p>
 </td>
 <td>
-<img class="photo" src="gis/recharge-potential-map.png" alt="Recharge potential zonation map for groundwater in Bangarpet Taluk, shaded from very low to very high">
-<p class="caption">Recharge potential zonation map for Bangarpet Taluk, classed from very low to very high.</p>
+<a class="frame" href="gis/layers-geomorphology-geology.png"><img src="gis/layers-geomorphology-geology.png" alt="Two thematic maps of Bangarpet Taluk: geomorphology and geology"></a>
+<p class="caption">Geomorphology and geology &mdash; two of the three layers carrying 21% weight each.</p>
+</td>
+<td>
+<a class="frame" href="gis/layers-slope-drainage-lineament.png"><img src="gis/layers-slope-drainage-lineament.png" alt="Three thematic maps of Bangarpet Taluk: slope, drainage density and lineament density"></a>
+<p class="caption">Slope, drainage density and lineament density.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a class="frame" href="gis/layer-weights.png"><img src="gis/layer-weights.png" alt="Bar chart of relative importance, assigned weights per GIS layer"></a>
+<p class="caption">The assigned weights, layer by layer.</p>
 </td>
 </tr>
 </table>
 
-<table class="g3">
+<h2>Outcome</h2>
+
+<p>The resulting maps pinpoint high-priority recharge zones and support targeted interventions such as tank rejuvenation, desilting, artificial recharge structures, and expanded groundwater monitoring.</p>
+
+<p><a href="https://budding-innovator.vercel.app/docs/ieee-bhtc-groundwater-gis-ai.pdf">Read the paper</a>.</p>
+
+<table class="grid">
 <tr>
 <td>
-<img class="photo tile" src="gis/ieee-presentation.jpg" alt="Presenting at a lectern at IEEE BHTC 2026">
+<a class="frame" href="gis/recharge-potential-map.png"><img src="gis/recharge-potential-map.png" alt="Recharge potential zonation map for groundwater in Bangarpet Taluk, shaded from very low to very high"></a>
+<p class="caption">Recharge potential zonation map for Bangarpet Taluk, classed from very low to very high.</p>
+</td>
+<td>
+<a class="frame photo" href="gis/ieee-presentation.jpg"><img src="gis/ieee-presentation.jpg" alt="Presenting at a lectern at IEEE BHTC 2026"></a>
 <p class="caption">Presenting the study at IEEE BHTC 2026, Bengaluru.</p>
 </td>
 <td>
-<img class="photo tile" src="gis/ieee-mapping-slide.jpg" alt="The GIS study slide on screen behind the lectern, showing two of the maps">
+<a class="frame photo" href="gis/ieee-mapping-slide.jpg"><img src="gis/ieee-mapping-slide.jpg" alt="The GIS study slide on screen behind the lectern, showing two of the maps"></a>
 <p class="caption">The maps on screen during that talk.</p>
-</td>
-<td>
-<img class="photo tile" src="gis/water-summit.jpg" alt="Standing in front of a Water Summit 2025 backdrop">
-<p class="caption">At the Water Summit.</p>
 </td>
 </tr>
 <tr>
 <td>
-<img class="photo tile" src="gis/gis-poster.jpg" alt="Explaining the poster to a visitor at a poster session">
+<a class="frame photo" href="gis/water-summit.jpg"><img src="gis/water-summit.jpg" alt="Standing in front of a Water Summit 2025 backdrop"></a>
+<p class="caption">At the Water Summit.</p>
+</td>
+<td>
+<a class="frame photo" href="gis/gis-poster.jpg"><img src="gis/gis-poster.jpg" alt="Explaining the poster to a visitor at a poster session"></a>
 <p class="caption">Talking through the poster.</p>
 </td>
-<td></td>
-<td></td>
 </tr>
 </table>
 

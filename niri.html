@@ -9,16 +9,23 @@
 <body>
 <div class="content">
 
-<div class="header"><h1>NIRI</h1><a href="index.html">Home</a></div>
+<div class="header"><h1>NIRI</h1></div>
+<div class="tabs">
+<a href="index.html">Home</a>
+<a href="aquaflux.html">AquaFlux</a>
+<a href="niri.html" class="here">NIRI</a>
+<a href="arogya.html">Arogya Dx</a>
+<a href="gis.html">GIS</a>
+</div>
 
-<table class="g2">
+<table class="grid">
 <tr>
 <td>
-<img class="photo tile" src="niri/niri-device.jpg" alt="NIRI device: a white enclosure with an orange gear housing, connected to a valve, standing in a blue tub of water">
+<a class="frame photo" href="niri/niri-device.jpg"><img src="niri/niri-device.jpg" alt="NIRI device: a white enclosure with an orange gear housing, connected to a valve, standing in a blue tub of water"></a>
 <p class="caption">The device during a water test, with the orange housing over the gear mechanism.</p>
 </td>
 <td>
-<img class="photo tile" src="niri/gear-valve-rig.png" alt="Keypad wired to a motor, 3D-printed gears and a ball valve clamped on a bench">
+<a class="frame photo" href="niri/gear-valve-rig.png"><img src="niri/gear-valve-rig.png" alt="Keypad wired to a motor, 3D-printed gears and a ball valve clamped on a bench"></a>
 <p class="caption">The mechanism without its case: keypad, servo, 3D-printed gears and the ball valve they turn.</p>
 </td>
 </tr>
@@ -54,27 +61,22 @@
 
 <h2>System Overview</h2>
 
-<table>
+<p>NIRI is a patented, IoT-enabled mechatronic water conservation system that cuts wastage through intelligent flow regulation, real-time leak detection, automatic shut-off, and behavior-driven nudges. It's built as a plug-in extension module that retrofits onto any existing tap or pipeline. Inside, a gear system drives a ball valve, rotating it to precise angles for fine-grained flow control. Refined over 6 iterations in 3 years, the device has 5 modes tuned to the highest-consumption points. It pairs with an AI water assistant that tracks consumption and uses the most effective methods to cut usage while maintaining comfort.</p>
+
+<p>The five modes, as they were written down when the device was evaluated: Normal (tracks and displays real-time usage), Alert (notifies when consumption crosses a set threshold), Regulate (automatically reduces flow once limits are exceeded), Eco (temporarily halts flow to discourage excessive use) and Vacation (detects leaks and halts flow while nobody is home).</p>
+
+<table class="grid">
 <tr>
 <td>
-<p>NIRI is a patented, IoT-enabled mechatronic water conservation system that cuts wastage through intelligent flow regulation, real-time leak detection, automatic shut-off, and behavior-driven nudges. It's built as a plug-in extension module that retrofits onto any existing tap or pipeline. Inside, a gear system drives a ball valve, rotating it to precise angles for fine-grained flow control. Refined over 6 iterations in 3 years, the device has 5 modes tuned to the highest-consumption points. It pairs with an AI water assistant that tracks consumption and uses the most effective methods to cut usage while maintaining comfort.</p>
-<p>The five modes, as they were written down when the device was evaluated: Normal (tracks and displays real-time usage), Alert (notifies when consumption crosses a set threshold), Regulate (automatically reduces flow once limits are exceeded), Eco (temporarily halts flow to discourage excessive use) and Vacation (detects leaks and halts flow while nobody is home).</p>
-</td>
-<td>
-<img class="photo scan" src="niri/specs-panel.png" alt="Specification panel listing electronic control, valve unit, power, operation and monitoring details for NIRI" style="max-width:880px">
+<a class="frame" href="niri/specs-panel.png"><img src="niri/specs-panel.png" alt="Specification panel listing electronic control, valve unit, power, operation and monitoring details for NIRI"></a>
 <p class="caption">The specification sheet for the current build: ESP32 WROOM and OLED display in a waterproof casing, a servo motor turning 3D-printed gears on a ball valve, two lithium-ion battery sets at 3.7 V nominal, 220 V AC to 9 V DC adaptor, 30 L/min maximum flow rate, 250 g.</p>
 </td>
-</tr>
-</table>
-
-<table class="g2">
-<tr>
 <td>
-<img class="photo scan" src="niri/assistant-interface.png" alt="Screens of the NIRI assistant interface showing consumption charts and controls" style="max-width:900px">
+<a class="frame" href="niri/assistant-interface.png"><img src="niri/assistant-interface.png" alt="Screens of the NIRI assistant interface showing consumption charts and controls"></a>
 <p class="caption">The NIRI assistant interface and IoT screens, where the consumption data from the device shows up.</p>
 </td>
 <td>
-<img class="photo scan" style="max-width:300px" src="niri/mvp-render.png" alt="Render of a white NIRI unit mounted on a brass ball valve">
+<a class="frame" href="niri/mvp-render.png"><img src="niri/mvp-render.png" alt="Render of a white NIRI unit mounted on a brass ball valve"></a>
 <p class="caption">6th Iteration &mdash; IoT enabled with AI Assisting, as the MVP. (Please note this is an AI-generated image, so it is a render of the intended product rather than a photograph of the build.)</p>
 </td>
 </tr>
@@ -90,60 +92,61 @@
 
 <p>I remember the first prototype I made was just an OLED display and a buzzer, and the wires ended up burning when I presented it in the most theatrical manner possible.</p>
 
-<table class="g2">
+<table class="grid">
 <tr>
 <td>
-<img class="photo scan" src="niri/block-diagram-trial1.png" alt="Hand-drawn block diagram linking keypad, Arduino Uno, breadboard, flow meter, valve, motor and 12 V supply" style="max-width:407px">
+<a class="frame" href="niri/block-diagram-trial1.png"><img src="niri/block-diagram-trial1.png" alt="Hand-drawn block diagram linking keypad, Arduino Uno, breadboard, flow meter, valve, motor and 12 V supply"></a>
 <p class="caption">The first hand-drawn block diagram: keypad and Arduino Uno driving a breadboard, flow meter, solenoid valve, motor and alarm off a 12 V supply.</p>
 </td>
 <td>
-<img class="photo scan" src="niri/block-diagram-trial2.png" alt="Second hand-drawn block diagram, labelled Trial 2, mode 1 2 3 working and mode 4 manual using potentiometer" style="max-width:452px">
+<a class="frame" href="niri/block-diagram-trial2.png"><img src="niri/block-diagram-trial2.png" alt="Second hand-drawn block diagram, labelled Trial 2, mode 1 2 3 working and mode 4 manual using potentiometer"></a>
 <p class="caption">Trial 2, written on the diagram itself: modes 1, 2 and 3 working, and mode 4 still manual using a potentiometer.</p>
 </td>
-</tr>
-</table>
-
-<table class="g3">
-<tr>
 <td>
-<img class="photo scan" src="niri/circuit-schematic-a.png" alt="Circuit schematic: keypad above a breadboard with microcontroller, servo motor and buzzer" style="max-width:508px">
+<a class="frame" href="niri/circuit-schematic-a.png"><img src="niri/circuit-schematic-a.png" alt="Circuit schematic: keypad above a breadboard with microcontroller, servo motor and buzzer"></a>
 <p class="caption">The same circuit drawn out properly: keypad, microcontroller on a breadboard, servo and buzzer.</p>
 </td>
+</tr>
+<tr>
 <td>
-<img class="photo scan" src="niri/circuit-schematic-b.png" alt="Second circuit schematic of the keypad, breadboard, servo and buzzer" style="max-width:515px">
+<a class="frame" href="niri/circuit-schematic-b.png"><img src="niri/circuit-schematic-b.png" alt="Second circuit schematic of the keypad, breadboard, servo and buzzer"></a>
 <p class="caption">The wiring redrawn as I rearranged the board.</p>
 </td>
 <td>
-<img class="photo scan" src="niri/circuit-schematic-c.png" alt="Circuit schematic with two display modules added alongside the microcontroller and servo" style="max-width:496px">
+<a class="frame" href="niri/circuit-schematic-c.png"><img src="niri/circuit-schematic-c.png" alt="Circuit schematic with two display modules added alongside the microcontroller and servo"></a>
 <p class="caption">A later version, once the display modules went in.</p>
 </td>
-</tr>
-</table>
-
-<table class="g3">
-<tr>
 <td>
-<img class="photo tile" src="niri/soldering.png" alt="Soldering components over a tangle of coloured wires on a bench">
+<a class="frame photo" href="niri/soldering.png"><img src="niri/soldering.png" alt="Soldering components over a tangle of coloured wires on a bench"></a>
 <p class="caption">Soldering. This is the stage where I kept burning my fingers.</p>
 </td>
+</tr>
+<tr>
 <td>
-<img class="photo tile" src="niri/bench-test.png" alt="Testing the device with tubing running into a plastic tub of water on a desk">
+<a class="frame photo" href="niri/bench-test.png"><img src="niri/bench-test.png" alt="Testing the device with tubing running into a plastic tub of water on a desk"></a>
 <p class="caption">Bench testing with a tub and tubing, before it went near a real pipe.</p>
 </td>
-<td></td>
 </tr>
 </table>
 
 <p>Over the iterations I adapted the power supply to be self-sufficient, with longer battery life for homes without a direct electricity connection. I made the controls more intuitive. And for the blocking mechanism I made a complete U-turn: it started with relays and a potentiometer and ended with a servo motor driving a gear mechanism on a ball valve. That was the most enjoyable part of the whole journey. Every iteration taught me something new, and I still feel the journey has not ended.</p>
 
-<img class="photo scan" src="niri/iterations-01-05.png" alt="Five-stage table of NIRI iterations from proof of concept to five modes and ball valve, with the current device and MVP below" style="max-width:852px">
+<table class="grid">
+<tr>
+<td>
+<a class="frame" href="niri/iterations-01-05.png"><img src="niri/iterations-01-05.png" alt="Five-stage table of NIRI iterations from proof of concept to five modes and ball valve, with the current device and MVP below"></a>
 <p class="caption">The five build stages behind the current device: 01 proof of concept (normal, alert and eco modes, circuit developed on breadboard, external battery and potentiometer); 02 solenoid flow control (electric solenoid valve controlling water flow in the three modes); 03 compact circuit and fourth mode added (plastic enclosure, regulate mode); 04 transformation of the device (perforated circuit board replacing the breadboard, 3D-printed case, SMD-supported lithium battery replacing the external battery and potentiometer); 05 five modes and ball valve (servo-driven ball valve replaces the solenoid, vacation mode added).</p>
-
-<img class="photo wide" src="niri/build-collage.png" alt="Collage of five numbered build stages beginning with loose wires on a breadboard">
+</td>
+<td>
+<a class="frame" href="niri/build-collage.png"><img src="niri/build-collage.png" alt="Collage of five numbered build stages beginning with loose wires on a breadboard"></a>
 <p class="caption">The same thing as photographs. It started with a few wires, and by stage five all the modes were working and it was IoT enabled.</p>
-
-<img class="photo" src="niri/genius-booth.png" alt="Standing with the Indian flag beside the NIRI project board at the GENIUS Olympiad">
+</td>
+<td>
+<a class="frame photo" href="niri/genius-booth.png"><img src="niri/genius-booth.png" alt="Standing with the Indian flag beside the NIRI project board at the GENIUS Olympiad"></a>
 <p class="caption">The NIRI board at the GENIUS Olympiad, New York.</p>
+</td>
+</tr>
+</table>
 
 <p><a href="https://drive.google.com/file/d/12nXcTHw3NXIH10kt1pEvJc5K3xOifmCN/view?usp=sharing">Regulation mode &nearr;</a><br>
 <a href="https://drive.google.com/file/d/10tM4W-7tbiTH2-dLqw3DUZJLAqO3DTzz/view?usp=sharing">Leak mode &nearr;</a></p>
@@ -152,20 +155,22 @@
 
 <h3>2. Stress Testing</h3>
 
-<table>
-<tr>
-<td>
 <p>Stress-tested it against three variables: water impurities, water temperature, and calibration drift, until it held up in every condition.</p>
+
 <p>Testing variables (stress testing) the device to make sure it was optimal in all conditions, considering there was no scope for the device to falter in people's homes or in an industrial setting. Did detailed tests on this set of variables:</p>
+
 <ul>
 <li>Variable 1: Impurities in water</li>
 <li>Variable 2: Temperature of water</li>
 <li>Variable 3: Calibration of the Device</li>
 </ul>
+
 <p>The testing is written up in <a href="https://doi.org/10.36838/IJHSR812.70">IJHSR 2026, Vol. 8 Issue 12, p. 70&ndash;80</a>.</p>
-</td>
+
+<table class="grid">
+<tr>
 <td>
-<img class="photo scan" src="niri/test-graphs.png" alt="Two line graphs: effect of impurities on water flow speed, and effect of temperature on water flow speed, each with three test runs" style="max-width:500px">
+<a class="frame" href="niri/test-graphs.png"><img src="niri/test-graphs.png" alt="Two line graphs: effect of impurities on water flow speed, and effect of temperature on water flow speed, each with three test runs"></a>
 <p class="caption">(A) Flow speed with normal versus impure water and (B) flow speed with hot, lukewarm and cold water, over three test runs each.</p>
 </td>
 </tr>
@@ -177,47 +182,46 @@
 
 <p>From there, NIRI moved into hospitals and homes, where each site gave me different feedback. I am now installing with Century Builders, and office workspaces like Zerodha.</p>
 
-<table class="g3">
+<table class="grid">
 <tr>
 <td>
-<img class="photo tile" src="niri/install-canteen.jpg" alt="Reaching up to fit the device onto a pipe running along a ceiling">
+<a class="frame photo" href="niri/install-canteen.jpg"><img src="niri/install-canteen.jpg" alt="Reaching up to fit the device onto a pipe running along a ceiling"></a>
 <p class="caption">Fitting a device onto a ceiling pipe.</p>
 </td>
 <td>
-<img class="photo tile" src="niri/install-ceiling.png" alt="Standing on tiptoe to reach a device mounted high on a ceiling pipe">
+<a class="frame photo" href="niri/install-ceiling.png"><img src="niri/install-ceiling.png" alt="Standing on tiptoe to reach a device mounted high on a ceiling pipe"></a>
 <p class="caption">Another install, on a pipe not built for someone my height.</p>
 </td>
 <td>
-<img class="photo tile" src="niri/deployment-tap.png" alt="Installed device on an exposed wall pipe, feeding a tap">
+<a class="frame photo" href="niri/deployment-tap.png"><img src="niri/deployment-tap.png" alt="Installed device on an exposed wall pipe, feeding a tap"></a>
 <p class="caption">An installed unit on exposed plumbing, showing as active.</p>
 </td>
 </tr>
 <tr>
 <td>
-<img class="photo tile" src="niri/deployment-wall.png" alt="Device mounted on a wall pipe above a sink, marked active">
+<a class="frame photo" href="niri/deployment-wall.png"><img src="niri/deployment-wall.png" alt="Device mounted on a wall pipe above a sink, marked active"></a>
 <p class="caption">A wall-mounted unit, also active.</p>
 </td>
 <td>
-<img class="photo tile" src="niri/hospital-deployment.jpg" alt="Device clamped onto an exposed overhead pipe feeding a tap">
+<a class="frame photo" href="niri/hospital-deployment.jpg"><img src="niri/hospital-deployment.jpg" alt="Device clamped onto an exposed overhead pipe feeding a tap"></a>
 <p class="caption">Clamped onto overhead plumbing at another site.</p>
 </td>
 <td>
-<img class="photo tile" src="niri/school-session.png" alt="Showing the device to a classroom of schoolchildren gathered around a desk">
+<a class="frame photo" href="niri/school-session.png"><img src="niri/school-session.png" alt="Showing the device to a classroom of schoolchildren gathered around a desk"></a>
 <p class="caption">Showing the device, and what it measures, to students.</p>
 </td>
 </tr>
 <tr>
 <td>
-<img class="photo tile" src="niri/school-demo.jpg" alt="Demonstrating the device to schoolchildren seated at a classroom desk">
+<a class="frame photo" href="niri/school-demo.jpg"><img src="niri/school-demo.jpg" alt="Demonstrating the device to schoolchildren seated at a classroom desk"></a>
 <p class="caption">The same kind of session at another school.</p>
 </td>
-<td></td>
-<td></td>
+<td>
+<a class="frame" href="niri/app-dashboard.jpg"><img src="niri/app-dashboard.jpg" alt="Water flow dashboard showing domestic and utensil cleaning usage in kilolitres, with normal and regulated mode compared"></a>
+<p class="caption">The monitoring dashboard the deployed devices report into, comparing consumption in normal mode against regulated mode.</p>
+</td>
 </tr>
 </table>
-
-<img class="photo scan" src="niri/app-dashboard.jpg" alt="Water flow dashboard showing domestic and utensil cleaning usage in kilolitres, with normal and regulated mode compared" style="max-width:900px">
-<p class="caption">The monitoring dashboard the deployed devices report into, comparing consumption in normal mode against regulated mode.</p>
 
 <p class="ask">[ASK: which site is each of these deployment photos from? The document lists a school canteen, hospitals and homes, but the photos are not labelled, so I have kept the captions to what is visible rather than naming a site.]</p>
 
@@ -232,41 +236,45 @@
 
 <p>I asked them for another day. I came back, demonstrated it properly, showed my results, and earned their technical validation for the device achieving up to 30% reduction. I now carry a spare set of every component in my device wherever I go. I call it the motor paranoia.</p>
 
-<table class="g3">
+<table class="grid">
 <tr>
 <td>
-<img class="photo tile" src="niri/govt-demo.png" alt="Demonstrating the device on a trolley to seated officials">
+<a class="frame photo" href="niri/govt-demo.png"><img src="niri/govt-demo.png" alt="Demonstrating the device on a trolley to seated officials"></a>
 <p class="caption">Demonstrating the working device, on the day it behaved.</p>
 </td>
 <td>
-<img class="photo tile" src="niri/govt-presenting.png" alt="Presenting to a seated audience in a government office meeting room">
+<a class="frame photo" href="niri/govt-presenting.png"><img src="niri/govt-presenting.png" alt="Presenting to a seated audience in a government office meeting room"></a>
 <p class="caption">Presenting the results in the meeting room.</p>
 </td>
 <td>
-<img class="photo tile" src="niri/govt-audience.png" alt="A room of engineers standing and seated for the presentation">
+<a class="frame photo" href="niri/govt-audience.png"><img src="niri/govt-audience.png" alt="A room of engineers standing and seated for the presentation"></a>
 <p class="caption">The room I had to come back to on the second day.</p>
 </td>
 </tr>
-</table>
-
-<img class="photo" src="niri/field-engineers.jpg" alt="Collage of four photographs from a presentation to engineers at a KUIDFC office" style="max-width:600px">
+<tr>
+<td>
+<a class="frame photo" href="niri/field-engineers.jpg"><img src="niri/field-engineers.jpg" alt="Collage of four photographs from a presentation to engineers at a KUIDFC office"></a>
 <p class="caption">Presentation to field engineers, Government of Karnataka.</p>
-
-<img class="photo scan" src="niri/validation-certificate.jpg" alt="Certificate of functionality and recommendation from the Rural Water Supply and Sanitation Department, Government of Karnataka" style="max-width:595px">
+</td>
+<td>
+<a class="frame" href="niri/validation-certificate.jpg"><img src="niri/validation-certificate.jpg" alt="Certificate of functionality and recommendation from the Rural Water Supply and Sanitation Department, Government of Karnataka"></a>
 <p class="caption">Certificate of Functionality &amp; Recommendation, Rural Water Supply &amp; Sanitation Department, Government of Karnataka, 10 October 2025. It lists the five modes and recommends the device for further scale-up and wider deployment.</p>
+</td>
+</tr>
+</table>
 
 <p>In 2026 I am working at an incubation centre linked to REVA University to make the device better and to build a solar version. That version is to be adopted at REVA University itself, for water conservation in the residential block.</p>
 
 <h3>5. IP</h3>
 
-<table>
+<p>The patent application for "A Device and System for Conservation of Water" was filed with the Indian Patent Office in Chennai on 29 November 2024, as application number 202441093699, with a provisional specification.</p>
+
+<p class="ask">[ASK: the document says "Received patent on —--" with the date left blank, and your message on 16 June 2026 says the patent is granted. What are the grant date and the granted patent number? I have not put a number on the page, because the certificate image here is the filing acknowledgement rather than the grant.]</p>
+
+<table class="grid">
 <tr>
 <td>
-<p>The patent application for "A Device and System for Conservation of Water" was filed with the Indian Patent Office in Chennai on 29 November 2024, as application number 202441093699, with a provisional specification.</p>
-<p class="ask">[ASK: the document says "Received patent on —--" with the date left blank, and your message on 16 June 2026 says the patent is granted. What are the grant date and the granted patent number? I have not put a number on the page, because the certificate image here is the filing acknowledgement rather than the grant.]</p>
-</td>
-<td>
-<img class="photo scan" src="niri/patent-certificate.jpg" alt="Indian Patent Office Chennai report on application number 202441093699 for a device and system for conservation of water" style="max-width:761px">
+<a class="frame" href="niri/patent-certificate.jpg"><img src="niri/patent-certificate.jpg" alt="Indian Patent Office Chennai report on application number 202441093699 for a device and system for conservation of water"></a>
 <p class="caption">The Indian Patent Office acknowledgement for the application, filed 29 November 2024.</p>
 </td>
 </tr>
@@ -276,44 +284,40 @@
 
 <p>NIRI is running in school and hospital canteens, in homes and in offices, with a dashboard tracking what each active device saves. It has been presented to government departments, and the testing is published in <a href="https://doi.org/10.36838/IJHSR812.70">IJHSR 2026, Vol. 8 Issue 12, p. 70&ndash;80</a>.</p>
 
-<table class="g2">
+<table class="grid">
 <tr>
 <td>
-<img class="photo tile" src="niri/genius-olympiad.jpg" alt="Standing with the Indian flag in front of a project board at the GENIUS Olympiad">
+<a class="frame photo" href="niri/genius-olympiad.jpg"><img src="niri/genius-olympiad.jpg" alt="Standing with the Indian flag in front of a project board at the GENIUS Olympiad"></a>
 <p class="caption">Presenting NIRI at the GENIUS Olympiad in New York.</p>
 </td>
 <td>
-<img class="photo tile" src="niri/sjwp.jpg" alt="Group photograph at the Stockholm Junior Water Prize India event">
+<a class="frame photo" href="niri/sjwp.jpg"><img src="niri/sjwp.jpg" alt="Group photograph at the Stockholm Junior Water Prize India event"></a>
 <p class="caption">At Stockholm Junior Water Prize India.</p>
 </td>
-</tr>
-</table>
-
-<table class="g3">
-<tr>
 <td>
-<img class="photo tile" src="niri/awareness-booth.png" alt="NIRI awareness stall with the device on the counter and a know your water display board">
+<a class="frame photo" href="niri/awareness-booth.png"><img src="niri/awareness-booth.png" alt="NIRI awareness stall with the device on the counter and a know your water display board"></a>
 <p class="caption">The awareness stall: the device on the counter, and a board on what a household actually uses.</p>
 </td>
+</tr>
+<tr>
 <td>
-<img class="photo tile" src="niri/drop-talk.png" alt="Speaking at a lectern at Drop Talk, with a slide reading a ripple starts with a drop">
+<a class="frame photo" href="niri/drop-talk.png"><img src="niri/drop-talk.png" alt="Speaking at a lectern at Drop Talk, with a slide reading a ripple starts with a drop"></a>
 <p class="caption">Speaking at Drop Talk &mdash; Redefining Water Conversations.</p>
 </td>
 <td>
-<img class="photo tile" src="niri/press-southfirst.png" alt="Video thumbnail: she built a water solution at 14 called NIRI, South First">
+<a class="frame photo" href="niri/press-southfirst.png"><img src="niri/press-southfirst.png" alt="Video thumbnail: she built a water solution at 14 called NIRI, South First"></a>
 <p class="caption">An interview about NIRI with South First.</p>
+</td>
+<td>
+<a class="frame photo" href="niri/interview.png"><img src="niri/interview.png" alt="Seated for a recorded interview in a studio"></a>
+<p class="caption">Another recorded interview about the device.</p>
 </td>
 </tr>
 <tr>
 <td>
-<img class="photo tile" src="niri/interview.png" alt="Seated for a recorded interview in a studio">
-<p class="caption">Another recorded interview about the device.</p>
-</td>
-<td>
-<img class="photo tile" src="niri/techvista.png" alt="Group photograph in front of Techvista banners">
+<a class="frame photo" href="niri/techvista.png"><img src="niri/techvista.png" alt="Group photograph in front of Techvista banners"></a>
 <p class="caption">At Techvista.</p>
 </td>
-<td></td>
 </tr>
 </table>
 
