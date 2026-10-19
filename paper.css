@@ -1,0 +1,76 @@
+/* A plain student page. Default serif, black text, paper background. */
+
+html { background: #f7f6f0; }
+
+body {
+  margin: 0;
+  padding: 20px 5vw 80px;
+  background: #f7f6f0;
+  color: #000;
+  font-family: serif;
+  font-size: 16px;
+  line-height: normal;
+}
+
+.content { max-width: 900px; margin: 0 auto; }
+
+.header { display: flex; align-items: baseline; gap: 20px; margin-bottom: 1.2em; }
+.header h1 { flex: 1; margin: 0; font-size: 2em; }
+.header a { white-space: nowrap; }
+
+a, a:visited { color: #000; }
+a:hover { text-decoration: none; }
+
+h2 { margin: 1.6em 0 0.4em; font-size: 1.3em; }
+h3 { margin: 1.3em 0 0.4em; font-size: 1.05em; }
+p { margin: 0 0 1em; }
+ul { margin: 0 0 1em; padding-left: 1.4em; }
+li { margin-bottom: 0.3em; }
+
+.intro { margin-bottom: 1.5em; }
+
+table { width: 100%; margin-bottom: 0.5em; border-collapse: collapse; }
+td { width: 50%; padding: 0 1.5% 1.5% 0; vertical-align: top; }
+td:last-child { padding-right: 0; }
+
+/* Images fill their cell, so every column lines up instead of going ragged. */
+img.photo, video.photo { display: block; width: 100%; height: auto; margin-bottom: 4px; }
+video.photo { background: #000; }
+
+/* Photo grids: equal cells, cropped to one ratio so the rows align. */
+img.tile { aspect-ratio: 4 / 3; object-fit: cover; }
+img.tall { aspect-ratio: 3 / 4; object-fit: cover; }
+
+/* A grid of two or three across, for a run of related images. */
+table.g2 td { width: 50%; }
+table.g3 td { width: 33.33%; }
+
+/* Drawings, charts and scans are never cropped: they sit inside a shared
+   height so the rows still line up. */
+table.g2 img.photo:not(.tile):not(.scan) { height: 300px; object-fit: contain; object-position: left top; }
+table.g3 img.photo:not(.tile):not(.scan) { height: 220px; object-fit: contain; object-position: left top; }
+
+/* Handwriting and schematics have to be read, so they fill the column instead,
+   up to the size they were actually scanned at. */
+img.scan { height: auto; }
+
+/* A photo that only needs to establish a place, not fill the page. */
+table.g3 img.photo.tile { aspect-ratio: 4 / 3; }
+
+@media (max-width: 760px) {
+  table.g2 img.photo:not(.tile), table.g3 img.photo:not(.tile) { height: auto; }
+}
+
+.caption { margin: 0 0 1.4em; font-size: 0.85em; font-style: italic; }
+
+.ask { font-style: italic; }
+
+.projects li { margin-bottom: 1em; }
+
+@media (max-width: 760px) {
+  body { padding: 16px 22px 48px; }
+  .header { display: block; }
+  .header h1 { font-size: 1.6em; margin-bottom: 0.2em; }
+  table, tbody, tr, td { display: block; width: 100%; }
+  td { padding: 0 0 1.5% 0; }
+}
