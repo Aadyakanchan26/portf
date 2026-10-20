@@ -33,21 +33,25 @@ li { margin-bottom: 0.3em; }
 
 .ask { font-style: italic; }
 
-/* Every picture sits in the same box, so the rows always line up.
-   Photographs fill it; drawings and scans sit inside it uncropped. */
-table.grid { margin: 0 auto 1.2em; border-collapse: collapse; }
-table.grid td { padding: 0 16px 16px 0; vertical-align: top; }
+/* Pictures sit in rows of equal boxes, two to a row, or three to close an
+   odd group, so no picture is ever left alone and every row lines up.
+   Each picture shows whole inside its box. */
+.row { display: flex; gap: 14px; margin: 0 0 14px; }
+.row .tile { flex: 1 1 0; min-width: 0; display: block; background: #fff; border: 1px solid #e6e2d6; }
+.row-2 .tile { height: 320px; }
+.row-3 .tile { height: 240px; }
+.row-1 .tile { flex: 0 1 50%; height: 320px; margin: 0 auto; }
+.tile img, .tile video { display: block; width: 100%; height: 100%; object-fit: contain; }
+/* Wide scans, such as map sheets and lab-record spreads, get the full width. */
+.row-full { margin: 0 0 14px; }
+.row-full > a { margin: 0 auto; }
 
 /* One fixed picture size for the whole site, two to a row, so handwriting and
    schematics are legible without any picture dominating the page. */
 .frame { display: block; width: 320px; height: 224px; background: #fff; border: 1px solid #e6e2d6; }
 .caption { max-width: 340px; }
 
-/* Handwriting, calculations and schematics get the full column width,
-   so the working can actually be read. */
-td.full { width: 100%; }
 img.scanbig { display: block; width: 100%; height: auto; margin: 0; background: #fff; border: 1px solid #e6e2d6; }
-td.full .caption { max-width: none; }
 
 
 /* Home page: the picture sits beside its text and stretches to exactly the
@@ -92,8 +96,8 @@ td.full .caption { max-width: none; }
   .header { display: block; }
   .header h1 { font-size: 1.6em; margin-bottom: 0.2em; }
   .tabs a { display: inline-block; margin: 0 14px 6px 0; }
-  table.grid, table.grid tbody, table.grid tr, table.grid td { display: block; width: 100%; }
-  table.grid td { padding: 0 0 14px 0; }
+  .row { flex-direction: column; }
+  .row .tile, .row-1 .tile { flex: none; height: 240px; }
   .side { display: block; }
   .side .pic { margin-top: 10px; }
   .side .pic.stack { grid-template-columns: 1fr; }
