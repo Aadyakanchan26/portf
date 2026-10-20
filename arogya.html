@@ -9,7 +9,7 @@
 <body>
 <div class="content">
 
-<div class="header"><h1>Arogya Dx</h1></div>
+<div class="header" id="top"><h1>Arogya Dx</h1></div>
 <div class="tabs">
 <a href="index.html">Home</a>
 <a href="aquaflux.html">AquaFlux</a>
@@ -18,232 +18,169 @@
 <a href="gis.html">GIS</a>
 </div>
 
-<table class="grid">
-<tr>
-<td>
-<a class="frame photo" href="arogya/building-device.jpg"><img src="arogya/building-device.jpg" alt="Working on the black optical chamber on a bench in the ATL lab, wearing gloves"></a>
-<p class="caption">Building and testing the optical setup in the ATL lab.</p>
-</td>
-<td>
-<a class="frame photo" href="arogya/device-topdown.png"><img src="arogya/device-topdown.png" alt="Top view of the device: a black chamber, a blue sample stage and a sensor board with a lit LED"></a>
-<p class="caption">The chamber, the sample stage and the sensor board, from above.</p>
-</td>
-</tr>
-</table>
+<h2>Current solutions</h2>
 
-<h2>Inspiration</h2>
-
-<h3>Current solutions</h3>
-
+<div class="side">
+<div class="words">
 <p>Current lipid profiling methods rely on expensive reagents, laboratory infrastructure, trained personnel, and require 24 hours for results, making them inaccessible for routine and large-scale screening, especially in rural and resource-limited settings. Consequently, testing is often delayed until symptoms appear, by which time disease progression is advanced, leaving over 50% of high-risk individuals undiagnosed.</p>
+</div>
+<div class="pic">
+<a class="frame photo" href="arogya/building-device.jpg"><img src="arogya/building-device.jpg" alt="Working on the black optical chamber on a bench in the ATL lab, wearing gloves"></a>
+</div>
+</div>
 
-<p>So the question I started with was whether lipid-induced changes in optical scattering could work as a screening signal on their own, without any chemistry.</p>
-
-<h2>System Overview</h2>
-
-<h3>Technical Systems Overview</h3>
+<h2>Technical Systems Overview</h2>
 
 <div class="side">
 <div class="words">
 <p>A simple, cost-effective point-of-care screening tool that captures plasma spectral signatures from 410&ndash;940 nm across UV, visible, and near-infrared regions. By leveraging lipid-induced changes in optical scattering, where different concentrations produce distinct spectral signatures, the platform enables real-time, reagent free detection and offers a scalable solution for accessible lipid screening in underserved communities.</p>
-<p>The components: an ESP32 as the central microcontroller for data processing, a TCS34725 RGB sensor for dual optical detection at inlet and outlet, an OLED display for real-time data visualisation, a 5 V and 3.3 V power module, and an AS7265x triad spectral sensor reading 18 wavelength channels from 410 to 940 nm across the visible spectrum and the NIR range.</p>
 </div>
 <div class="pic">
-<a class="frame photo" href="arogya/wiring-desk-1.jpg"><img src="arogya/wiring-desk-1.jpg" alt="Wiring a sensor board at a desk, with the circuit diagram open on a monitor behind"></a>
-<p class="caption">Wiring the sensor boards with the circuit diagram open on the screen for reference.</p>
+<a class="frame photo" href="arogya/device-topdown.png"><img src="arogya/device-topdown.png" alt="Top view of the device: a black chamber, a blue sample stage and a sensor board with a lit LED"></a>
 </div>
 </div>
-
 <table class="grid">
 <tr>
 <td class="full" colspan="2">
 <a href="arogya/experimental-circuit.png" style="display:block;max-width:700px"><img src="arogya/experimental-circuit.png" alt="Experimental circuit diagram listing system components and the normalisation formulas used" class="scanbig"></a>
-<p class="caption">The experimental circuit and the normalisation the readings go through &mdash; each channel divided by the sum of the three, as a percentage, then the change between inlet and outlet.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a class="frame photo" href="arogya/wiring-desk-1.jpg"><img src="arogya/wiring-desk-1.jpg" alt="Wiring a sensor board at a desk, with the circuit diagram open on a monitor behind"></a>
 </td>
 <td>
 <a class="frame photo" href="arogya/wiring-desk-2.jpg"><img src="arogya/wiring-desk-2.jpg" alt="Close view of the same desk: a breakout board being soldered, the circuit diagram on the monitor"></a>
-<p class="caption">The same session, closer in.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a class="frame photo" href="arogya/atl-lab-work.png"><img src="arogya/atl-lab-work.png" alt="Working on the device at a bench in the ATL lab"></a>
 </td>
 </tr>
 </table>
 
-<!-- ASK: these two photos came through on 18 October with the portfolio videos but without a note. I have placed them with Arogya Dx because the board layout on the monitor matches this circuit &mdash; can you confirm they are not from the NIRI build? -->
+<h2>IISc</h2>
 
-<h2>Journey</h2>
-
-<h3>1. Where it started: IISc</h3>
-
-<p>Undertook a team research project, presented under the mentorship of a doctoral researcher. Pushed blood through a 1000 &micro;m-wide microchannel at 3, 13, and 23 &micro;L/s, splitting the half-channel field of view into three zones: near wall, centre, and far wall.</p>
-
-<p>Using manual tracking in ImageJ, followed RBCs across 13 timed frames per zone and calculated displacement, velocity, and trajectory. Velocity rose from the wall toward the centre, and the central zones converged into a plug-like profile, while near-wall cells tumbled erratically under high shear.</p>
-
-<p>RBCs migrated to the core under inertial lift and wall interactions, leaving a cell-free plasma layer at the edges, the F&aring;hr&aelig;us&ndash;Lindqvist effect in action.</p>
-
-<p>That cell-free layer at the edge of the channel is the reason an optical reading of plasma is possible without separating anything out first.</p>
-
+<div class="side">
+<div class="words">
+<p>Undertook a team research project in, presented under the mentorship of a doctoral researcher. Pushed blood through a 1000 &micro;m-wide microchannel at 3, 13, and 23 &micro;L/s, splitting the half-channel field of view into three zones: near wall, centre, and far wall. Using manual tracking in ImageJ, followed RBCs across 13 timed frames per zone and calculated displacement, velocity, and trajectory. Velocity rose from the wall toward the centre, and the central zones converged into a plug-like profile, while near-wall cells tumbled erratically under high shear. RBCs migrated to the core under inertial lift and wall interactions, leaving a cell-free plasma layer at the edges, the F&aring;hr&aelig;us&ndash;Lindqvist effect in action.</p>
+</div>
+<div class="pic">
+<a class="frame photo" href="arogya/iisc-team.jpg"><img src="arogya/iisc-team.jpg" alt="Presenting a slide titled Blood Flow in Microchannels with the project team"></a>
+</div>
+</div>
+<!-- CHECK: the reference text reads "a team research project in, presented" - a word is missing after "in". -->
 <table class="grid">
 <tr>
 <td>
 <a href="arogya/microchannel-magnifications.png" style="display:block;max-width:148px"><img src="arogya/microchannel-magnifications.png" alt="Four microscope images of the same microchannel at 10x, 50x, 100x and 200x magnification" class="scanbig"></a>
-<p class="caption">The microchannel at 10&times;, 50&times;, 100&times; and 200&times;.</p>
 </td>
 <td>
 <a href="arogya/tracking-zones.png" style="display:block;max-width:348px"><img src="arogya/tracking-zones.png" alt="Microscope frame of the channel divided by dotted lines into three numbered zones labelled w/6, w/3 and w/2" class="scanbig"></a>
-<p class="caption">The field of view split into the three tracking zones, at w/6, w/3 and w/2 across the channel.</p>
 </td>
 </tr>
 <tr>
 <td>
 <a href="arogya/rbc-deformation-modes.png" style="display:block;max-width:348px"><img src="arogya/rbc-deformation-modes.png" alt="Diagram of red blood cell behaviour at increasing shear rate: tumbling, rolling, and tank-treading or swinging" class="scanbig"></a>
-<p class="caption">Red blood cell behaviour as shear rate increases &mdash; tumbling, rolling, then tank-treading and swinging &mdash; which is what the near-wall cells were doing.</p>
 </td>
-<td>
-<a href="arogya/flow-analysis-23ul.png" style="display:block;max-width:348px"><img src="arogya/flow-analysis-23ul.png" alt="Panel of six graphs showing displacement, velocity and cumulative time for left periphery, middle and right periphery at 23 microlitres per second" class="scanbig"></a>
-<p class="caption">Flow rate of blood at 23 &micro;L/s: displacement-time, velocity-time and cumulative-time graphs for the left periphery, the middle and the right periphery.</p>
-</td>
-</tr>
-</table>
-
-<!-- ASK: this figure came from the project material rather than from our own microscopy. Whose figure is it, so it can be credited properly? -->
-
-<table class="grid">
-<tr>
 <td>
 <a class="frame photo" href="arogya/iisc-lab.jpg"><img src="arogya/iisc-lab.jpg" alt="Students around a microscope rig in a fluid mechanics laboratory"></a>
-<p class="caption">The fluid mechanics lab where the microchannel work was done.</p>
-</td>
-<td>
-<a class="frame photo" href="arogya/iisc-team.jpg"><img src="arogya/iisc-team.jpg" alt="Presenting a slide titled Blood Flow in Microchannels with the project team"></a>
-<p class="caption">Presenting "Blood Flow in Microchannels" with the team.</p>
 </td>
 </tr>
 <tr>
 <td>
+<a href="arogya/flow-analysis-23ul.png" style="display:block;max-width:348px"><img src="arogya/flow-analysis-23ul.png" alt="Panel of six graphs showing displacement, velocity and cumulative time for left periphery, middle and right periphery at 23 microlitres per second" class="scanbig"></a>
+</td>
+<td>
 <a class="frame photo" href="arogya/iisc-mech-block.jpg"><img src="arogya/iisc-mech-block.jpg" alt="The research team outside the Mechanical Engineering PE Block at IISc"></a>
-<p class="caption">The team outside the Mechanical Engineering PE Block.</p>
 </td>
 </tr>
 </table>
 
-<h3>2. Building Arogya Dx</h3>
+<h2>Building Arogya Dx</h2>
 
 <div class="side">
 <div class="words">
-<p>A PDMS microfluidic platform was used. A PEG&ndash;water solution with egg yolk as a lipid analog was prepared in concentrations of 1:9, 2:8, 3:7, 4:6, and 5:5. Samples were centrifuged prior to testing.</p>
-<p>Optical data was collected using a TCS34725 RGB sensor and an AS7265 TRIAD spectral sensor (410&ndash;940 nm, 18 channels). The setup was enclosed in a light-isolated chamber to minimize interference.</p>
+<p>A PDMS microfluidic platform was used. A PEG&ndash;water solution with egg yolk as a lipid analog was prepared in concentrations of 1:9, 2:8, 3:7, 4:6, and 5:5. Samples were centrifuged prior to testing. Optical data was collected using a TCS34725 RGB sensor and an AS7265 TRIAD spectral sensor (410&ndash;940 nm, 18 channels). The setup was enclosed in a light-isolated chamber to minimize interference.</p>
 </div>
 <div class="pic">
-<a class="frame photo" href="arogya/build-6.jpg"><img src="arogya/build-6.jpg" alt="Assembling the black chamber on a red work surface, wearing blue gloves"></a>
-<p class="caption">Assembling the light-isolated chamber.</p>
+<a class="frame photo" href="arogya/build-1.jpg"><img src="arogya/build-1.jpg" alt="The black chamber with the blue sample stage inside it, on a red surface"></a>
 </div>
 </div>
-
 <table class="grid">
 <tr>
 <td>
-<a href="arogya/wiring-collage.jpg" style="display:block;max-width:348px"><img src="arogya/wiring-collage.jpg" alt="Build record collage: wiring plan, component layout, the sensor board and the early enclosure" class="scanbig"></a>
-<p class="caption">The build record for this version: wiring plan, component layout, sensor board and the first enclosure.</p>
+<a class="frame photo" href="arogya/build-6.jpg"><img src="arogya/build-6.jpg" alt="Assembling the black chamber on a red work surface, wearing blue gloves"></a>
 </td>
 <td>
 <a class="frame photo" href="arogya/build-3.jpg"><img src="arogya/build-3.jpg" alt="Several PDMS microfluidic chips with coloured channels laid out on a surface"></a>
-<p class="caption">The PDMS chips, with the channels filled so the path is visible.</p>
 </td>
 </tr>
 <tr>
 <td>
 <a class="frame photo" href="arogya/build-5.jpg"><img src="arogya/build-5.jpg" alt="Sample preparation: a beaker of yellow solution, pipette and chips on the bench"></a>
-<p class="caption">Preparing the PEG&ndash;water and egg yolk samples before centrifuging.</p>
 </td>
 <td>
-<a class="frame photo" href="arogya/build-1.jpg"><img src="arogya/build-1.jpg" alt="The black chamber with the blue sample stage inside it, on a red surface"></a>
-<p class="caption">The chamber with the sample stage seated inside it.</p>
+<a class="frame photo" href="arogya/build-4.jpg"><img src="arogya/build-4.jpg" alt="OLED display on the side of the enclosure showing a readout"></a>
 </td>
 </tr>
 <tr>
 <td>
-<a class="frame photo" href="arogya/build-4.jpg"><img src="arogya/build-4.jpg" alt="OLED display on the side of the enclosure showing a readout"></a>
-<p class="caption">The OLED readout on the side of the enclosure during a run.</p>
+<a href="arogya/wiring-collage.jpg" style="display:block;max-width:348px"><img src="arogya/wiring-collage.jpg" alt="Build record collage: wiring plan, component layout, the sensor board and the early enclosure" class="scanbig"></a>
 </td>
 <td>
 <a class="frame" href="videos/arogya-optical-setup.mp4"><video controls preload="metadata" poster="arogya/build-2.jpg"><source src="videos/arogya-optical-setup.mp4" type="video/mp4">Your browser does not support this video.</video></a>
-<p class="caption">Setting up a run: the chamber, the sample stage with the OLED, the chips and a prepared sample.</p>
 </td>
 </tr>
 <tr>
 <td>
 <a class="frame" href="videos/arogya-sensor-test.mp4"><video controls preload="metadata" poster="arogya/build-1.jpg"><source src="videos/arogya-sensor-test.mp4" type="video/mp4">Your browser does not support this video.</video></a>
-<p class="caption">The sensor board lit up over a sample, mid-reading.</p>
 </td>
 </tr>
 </table>
 
-<h3>3. Plasma Validation</h3>
+<h2>Plasma Validation</h2>
 
 <div class="side">
 <div class="words">
 <p>Two plasma samples with distinct lipid profiles were tested under identical conditions. Their spectral signatures were mapped and compared to evaluate real-world applicability.</p>
-<p>a) The strongest discrimination between lipid concentrations appeared at 645 nm (red), 535 nm (green), 410 nm (blue), and in the NIR range.</p>
-<p>b) At around 410 nm, blue reflectance dropped as lipid concentration rose, consistent with optical scattering.</p>
-<p>c) Each concentration produced a distinct spectral signature, separable without relying on visible colour and confirmed by clear separation in the NIR range.</p>
-<p>d) Plasma samples followed the same patterns, confirming the system works on real-world samples.</p>
+<ol type="a">
+<li>The strongest discrimination between lipid concentrations appeared at 645 nm (red), 535 nm (green), 410 nm (blue), and in the NIR range.</li>
+<li>At around 410 nm, blue reflectance dropped as lipid concentration rose, consistent with optical scattering.</li>
+<li>Each concentration produced a distinct spectral signature, separable without relying on visible colour and confirmed by clear separation in the NIR range.</li>
+<li>Plasma samples followed the same patterns, confirming the system works on real-world samples.</li>
+</ol>
 </div>
 <div class="pic">
 <a class="frame photo" href="arogya/plasma-separation.jpg"><img src="arogya/plasma-separation.jpg" alt="Centrifuged sample tubes with separated plasma, beside a tray of microfluidic chips"></a>
-<p class="caption">Separation of blood and plasma via the microfluidic channels, and the centrifuged tubes the samples came from.</p>
 </div>
 </div>
-
 <table class="grid">
 <tr>
 <td>
-<a href="arogya/plasma-comparison.png" style="display:block;max-width:348px"><img src="arogya/plasma-comparison.png" alt="Line chart comparing spectral signatures of plasma sample 1 and plasma sample 2 from 410 to 860 nm" class="scanbig"></a>
-<p class="caption">The two plasma samples compared across 410&ndash;860 nm.</p>
+<a href="arogya/spectral-signature.jpg" style="display:block;max-width:348px"><img src="arogya/spectral-signature.jpg" alt="Spectral signature chart from 410 to 740 nm for different lipid concentrations, with maximum discrimination marked at 645, 535 and 410 nm" class="scanbig"></a>
 </td>
 <td>
-<a href="arogya/spectral-signature.jpg" style="display:block;max-width:348px"><img src="arogya/spectral-signature.jpg" alt="Spectral signature chart from 410 to 740 nm for different lipid concentrations, with maximum discrimination marked at 645, 535 and 410 nm" class="scanbig"></a>
-<p class="caption">Where the separation is strongest: 645 nm in the red region, 535 nm in the green, and 410 nm in the blue.</p>
+<a href="arogya/plasma-comparison.png" style="display:block;max-width:348px"><img src="arogya/plasma-comparison.png" alt="Line chart comparing spectral signatures of plasma sample 1 and plasma sample 2 from 410 to 860 nm" class="scanbig"></a>
+</td>
+</tr>
+<tr>
+<td class="full" colspan="2">
+<a href="arogya/mean-spectral-response.jpg" style="display:block;max-width:700px"><img src="arogya/mean-spectral-response.jpg" alt="Line chart of mean spectral response by concentration, with six series from 0 to 50 percent across 410 to 940 nm" class="scanbig"></a>
 </td>
 </tr>
 <tr>
 <td>
 <a href="arogya/plasma-testing.png" style="display:block;max-width:348px"><img src="arogya/plasma-testing.png" alt="Spectral signature analysis slide with a total cholesterol table and photographs of separated blood and plasma" class="scanbig"></a>
-<p class="caption">The same comparison with the reference values the two samples came with &mdash; 160 mg/dL and 180 mg/dL total cholesterol &mdash; and the microfluidic separation of blood and plasma beside it.</p>
 </td>
-<td class="full" colspan="2">
-<a href="arogya/mean-spectral-response.jpg" style="display:block;max-width:700px"><img src="arogya/mean-spectral-response.jpg" alt="Line chart of mean spectral response by concentration, with six series from 0 to 50 percent across 410 to 940 nm" class="scanbig"></a>
-<p class="caption">Mean spectral response by concentration, one series per analogue mixture.</p>
-</td>
-</tr>
-</table>
-
-<h2>What is still open</h2>
-
-<div class="side">
-<div class="words">
-<p>This is a bench setup and a set of observations, not a validated test. What it does not yet show is reproducibility across runs, a calibration that holds, or performance on a sample set big enough to mean anything &mdash; and all of that needs reference laboratory measurements to check against. That is the next piece of work, and it is the harder half.</p>
-</div>
-<div class="pic">
-<a class="frame photo" href="arogya/atl-lab-work.png"><img src="arogya/atl-lab-work.png" alt="Working on the device at a bench in the ATL lab"></a>
-<p class="caption">Back at the bench.</p>
-</div>
-</div>
-
-<table class="grid">
-<tr>
 <td>
 <a href="arogya/icetems-podium.jpg" style="display:block;max-width:348px"><img src="arogya/icetems-podium.jpg" alt="Presenting the microfluidic device paper at a conference podium" class="scanbig"></a>
-<p class="caption">Presenting the paper, "Microfluidic device for rapid detection of familial hyperlipidemia using optical turbidity sensing", at IEEE ICETEMS 2026.</p>
 </td>
 </tr>
 </table>
 
-<p><a href="https://budding-innovator.vercel.app/docs/ieee-icetems-microfluidic-hyperlipidemia.pdf">Read the paper</a>.</p>
-
-<!-- ASK: a lot of the images for this project are small &mdash; several are only 200 to 400 pixels wide, so they are shown smaller than the rest of the site rather than blown up and blurry. The microchannel magnifications and the build photos especially would carry much better at full resolution. Can you send the originals? -->
-
-<!-- ASK: the document mentions a video of the tumbling cells from slide 14 of the IISc presentation, and a Canva link for that deck. Can you send that clip? It would show the near-wall behaviour far better than the still frames do. -->
-
-<!-- ASK: the document also points to a Drive folder of extra working photos and says there are more shaded videos on WhatsApp for this project. I have used everything that reached the folder &mdash; send the rest and I will place them. -->
+<p><a href="#top">Back to top &uarr;</a> &middot; <a href="index.html">&larr; All projects</a></p>
 
 </div>
 </body>
