@@ -70,6 +70,18 @@ td.full .caption { max-width: none; }
 
 .caption { margin: 6px 0 0; font-size: 0.82em; font-style: italic; }
 
+/* Home page: one card per project, separated by a rule, each leading
+   through to that project's own page. */
+.card { border-top: 1px solid #ddd9cc; padding: 1.6em 0 0.4em; }
+.card-pic { display: block; max-width: 560px; height: 260px; background: #fff; border: 1px solid #e6e2d6; }
+.card-pic img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.card-pic.photo img { object-fit: cover; }
+.label { margin: 1em 0 0.2em; font-size: 0.8em; letter-spacing: 0.08em; text-transform: uppercase; color: #555; }
+.card h2 { margin: 0 0 0.4em; }
+
+/* Videos: YouTube Shorts are portrait, so they get a narrow upright frame. */
+.short { display: block; width: 315px; max-width: 100%; aspect-ratio: 9 / 16; border: 0; background: #000; margin: 0 0 0.8em; }
+
 @media (max-width: 760px) {
   body { padding: 16px 22px 48px; }
   .header { display: block; }
@@ -85,4 +97,5 @@ td.full .caption { max-width: none; }
   .frame, .caption { width: 100%; max-width: 100%; }
   .frame, .side .frame { height: 230px; flex: none; }
   .frame { height: 220px; }
+  .card-pic { height: 220px; }
 }
