@@ -80,6 +80,7 @@ td.full .caption { max-width: none; }
 .card h2 { margin: 0 0 0.4em; }
 
 /* Videos: YouTube Shorts are portrait, so they get a narrow upright frame. */
+.video { display: block; width: 100%; max-width: 560px; aspect-ratio: 16 / 9; border: 0; background: #000; margin: 0 0 0.6em; }
 .short { display: block; width: 315px; max-width: 100%; aspect-ratio: 9 / 16; border: 0; background: #000; margin: 0 0 0.8em; }
 
 @media (max-width: 760px) {
