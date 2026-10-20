@@ -61,6 +61,10 @@ td.full .caption { max-width: none; }
 .side .frame { width: 100%; height: auto; flex: 1 1 0; min-height: 185px; }
 .side .pic { overflow: hidden; }
 .side .caption { width: 100%; max-width: none; margin-top: 6px; }
+/* Several pictures beside one block of text: a 2x2 grid in a wider column,
+   so the pictures finish close to where the text does. */
+.side .pic.stack { flex-basis: 400px; overflow: visible; display: grid; grid-template-columns: 1fr 1fr; gap: 12px 14px; align-content: start; }
+.side .pic.stack .frame { flex: none; height: 135px; }
 .frame img, .frame video { display: block; width: 100%; height: 100%; object-fit: contain; }
 .frame.photo img, .frame.photo video { object-fit: cover; }
 
@@ -75,6 +79,8 @@ td.full .caption { max-width: none; }
   table.grid td { padding: 0 0 14px 0; }
   .side { display: block; }
   .side .pic { margin-top: 10px; }
+  .side .pic.stack { grid-template-columns: 1fr; }
+  .side .pic.stack .frame { height: 220px; }
   /* A phone is narrower than the fixed frame, so let it shrink to fit. */
   .frame, .caption { width: 100%; max-width: 100%; }
   .frame, .side .frame { height: 230px; flex: none; }
