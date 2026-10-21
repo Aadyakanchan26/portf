@@ -1,0 +1,5 @@
+.source-materials/
+.git/
+.gitignore
+.DS_Store
+*.md

@@ -14,7 +14,9 @@ body {
 
 .content { max-width: 900px; margin: 0 auto; }
 
-.header { display: flex; align-items: baseline; gap: 20px; margin-bottom: 0.6em; }
+.header { margin-bottom: 0.6em; }
+.eyebrow { margin: 0 0 0.15em; font-size: 0.78em; letter-spacing: 0.1em; text-transform: uppercase; color: #666; }
+.eyebrow a { color: #666; }
 .header h1 { flex: 1; margin: 0; font-size: 2em; }
 
 a, a:visited { color: #000; }
@@ -26,70 +28,90 @@ a:hover { text-decoration: none; }
 .tabs a.here { text-decoration: none; font-weight: bold; }
 
 h2 { margin: 1.6em 0 0.4em; font-size: 1.3em; }
-h3 { margin: 1.3em 0 0.4em; font-size: 1.05em; }
+h3 { margin: 1.3em 0 0.4em; font-size: 1.12em; }
+h4 { margin: 1.2em 0 0.4em; font-size: 1.05em; font-style: italic; font-weight: bold; }
 p { margin: 0 0 1em; }
 ul { margin: 0 0 1em; padding-left: 1.4em; }
 li { margin-bottom: 0.3em; }
 
 .ask { font-style: italic; }
 
+/* The three panels from the mathematical-analysis slide, rebuilt as text. */
+.boxes { display: flex; gap: 22px; align-items: stretch; margin: 0 0 1.2em; }
+.box { flex: 1 1 0; min-width: 0; border: 1px solid #ddd9cc; padding: 12px 16px 14px; }
+.box h5 { margin: 0 0 0.5em; font-size: 0.95em; text-align: center; }
+.box ul { margin: 0; padding-left: 1.2em; }
+.box li { margin-bottom: 0.35em; }
+.box p { margin: 0 0 0.5em; }
+.box p:last-child { margin-bottom: 0; }
+.eq { font-style: italic; }
+.rad { border-top: 1px solid #000; padding: 0 2px; }
+.features { margin: 0 0 1em; padding-left: 1.4em; }
+.features li { margin-bottom: 0.5em; }
+
 /* Pictures sit in rows of equal boxes, two to a row, or three to close an
    odd group, so no picture is ever left alone and every row lines up.
    Each picture shows whole inside its box. */
-.row { display: flex; gap: 14px; margin: 0 0 14px; }
-.row .tile { flex: 1 1 0; min-width: 0; display: block; background: #fff; border: 1px solid #e6e2d6; }
-.row-2 .tile { height: 320px; }
-.row-3 .tile { height: 240px; }
-.row-1 .tile { flex: 0 1 50%; height: 320px; margin: 0 auto; }
-.tile img, .tile video { display: block; width: 100%; height: 100%; object-fit: contain; }
+.row { display: flex; gap: 14px; margin: 0 0 14px; align-items: flex-start; max-width: 720px; }
+.row .cell { flex: 1 1 0; min-width: 0; }
+.row .cell .tile { width: 100%; }
+.row .tile { flex: 1 1 0; min-width: 0; display: block; }
+.row-1 .tile { flex: 0 1 50%; margin: 0 auto; }
+.tile img, .tile video { display: block; width: 100%; height: auto; }
+/* a clip sizes from its own frame, never from a poster of another shape */
+.tile video { background: #000; }
+/* Every picture in a row is given a share of the width in proportion to its own
+   shape, so the whole row comes out one height with nothing cropped away. */
 /* Wide scans, such as map sheets and lab-record spreads, get the full width. */
 .row-full { margin: 0 0 14px; }
 .row-full > a { margin: 0 auto; }
 
-/* One fixed picture size for the whole site, two to a row, so handwriting and
-   schematics are legible without any picture dominating the page. */
-.frame { display: block; width: 320px; height: 224px; background: #fff; border: 1px solid #e6e2d6; }
+/* A picture is just the picture: no box, no border, no white margin around it,
+   so it reads as pasted onto the page rather than screenshotted. */
+.frame { display: block; width: 300px; }
 .caption { max-width: 340px; }
 
-img.scanbig { display: block; width: 100%; height: auto; margin: 0; background: #fff; border: 1px solid #e6e2d6; }
+img.scanbig { display: block; width: 100%; height: auto; margin: 0; }
 
 
 /* Home page: the picture sits beside its text and stretches to exactly the
    height of that text, so the two columns always finish on the same line. */
-.side { display: flex; align-items: stretch; gap: 26px; margin: 0 0 1.8em; }
+.side { display: flex; align-items: flex-start; gap: 26px; margin: 0 0 1.8em; }
 .side .words { flex: 1 1 auto; min-width: 0; }
 .side .words p:last-child { margin-bottom: 0; }
-.side .pic { flex: 0 0 320px; display: flex; flex-direction: column; }
+.side .pic { flex: 0 0 300px; display: flex; flex-direction: column; }
+/* A tall portrait Short gets a narrower column than a photograph would. */
+.side .pic.tall { flex-basis: 250px; }
 /* flex-basis 0 so the picture takes the height the text gives it,
    rather than the row growing to the picture's own height. */
-.side .frame { width: 100%; height: auto; flex: 1 1 0; min-height: 185px; }
+.side .frame { width: 100%; height: auto; flex: 0 0 auto; }
 .side .pic { overflow: hidden; }
 .side .caption { width: 100%; max-width: none; margin-top: 6px; }
 /* Several pictures beside one block of text: a 2x2 grid in a wider column,
    so the pictures finish close to where the text does. */
 .side .pic.stack { flex-basis: 400px; overflow: visible; display: grid; grid-template-columns: 1fr 1fr; gap: 12px 14px; align-content: start; }
-.side .pic.stack .frame { flex: none; height: 135px; }
-.frame img, .frame video { display: block; width: 100%; height: 100%; object-fit: contain; }
-/* Never crop: every picture shows whole inside its box. */
-.frame.photo img, .frame.photo video { object-fit: contain; }
+.side .pic.stack .frame { flex: none; }
+.frame img, .frame video { display: block; width: 100%; height: auto; }
 
 .caption { margin: 6px 0 0; font-size: 0.82em; font-style: italic; }
 
-/* Home page: one card per project, separated by a rule, each leading
-   through to that project's own page. */
-.card { border-top: 1px solid #ddd9cc; padding: 1.6em 0 0.4em; }
-.card-pic { display: block; max-width: 560px; height: 260px; margin: 0 0 1em; background: #fff; border: 1px solid #e6e2d6; }
-.card-pic img { display: block; width: 100%; height: 100%; object-fit: contain; }
-.card-pic.photo img { object-fit: contain; }
-.label { margin: 1em 0 0.2em; font-size: 0.8em; letter-spacing: 0.08em; text-transform: uppercase; color: #555; }
-.card h2 { margin: 0 0 0.4em; }
-/* Two pictures side by side in one card. */
-.card-pair { display: flex; gap: 12px; margin: 0 0 1em; }
-.card-pair .card-pic { flex: 1 1 0; min-width: 0; max-width: none; height: 330px; margin: 0; }
+/* Home page: one card per project &mdash; picture on the left, text on the right,
+   separated by a rule. */
+.card { border-top: 1px solid #ddd9cc; padding: 1.6em 0 0.6em; }
+/* the tab bar already draws a rule, so the first card does not repeat it */
+.tabs + .card { border-top: 0; padding-top: 0.6em; }
+.card-row { display: flex; align-items: flex-start; gap: 30px; }
+.card-pic { flex: 0 0 44%; display: block; max-width: 44%; }
+.card-pic img { display: block; width: 100%; height: auto; }
+.card-text { flex: 1 1 auto; min-width: 0; }
+.card-text p:last-child { margin-bottom: 0; }
+.label { margin: 0 0 0.3em; font-size: 0.78em; letter-spacing: 0.1em; text-transform: uppercase; color: #666; }
+.card h2 { margin: 0 0 0.5em; }
 
 /* Videos: YouTube Shorts are portrait, so they get a narrow upright frame. */
-.video { display: block; width: 100%; max-width: 560px; aspect-ratio: 16 / 9; border: 0; background: #000; margin: 0 auto 0.6em; }
-.short { display: block; width: 315px; max-width: 100%; aspect-ratio: 9 / 16; border: 0; background: #000; margin: 0 auto 0.8em; }
+.video { display: block; width: 100%; max-width: 560px; aspect-ratio: 16 / 9; border: 0; background: #000; margin: 0 0 0.6em; }
+.paper { display: block; width: 100%; max-width: 700px; height: 460px; border: 1px solid #ddd9cc; background: #fff; margin: 0 0 0.6em; }
+.short { display: block; width: 100%; max-width: 250px; aspect-ratio: 9 / 16; border: 0; background: #000; margin: 0 0 0.8em; }
 
 @media (max-width: 760px) {
   body { padding: 16px 22px 48px; }
@@ -97,16 +119,15 @@ img.scanbig { display: block; width: 100%; height: auto; margin: 0; background: 
   .header h1 { font-size: 1.6em; margin-bottom: 0.2em; }
   .tabs a { display: inline-block; margin: 0 14px 6px 0; }
   .row { flex-direction: column; }
-  .row .tile, .row-1 .tile { flex: none; height: 240px; }
+  .row .tile, .row-1 .tile { flex: none; }
   .side { display: block; }
   .side .pic { margin-top: 10px; }
   .side .pic.stack { grid-template-columns: 1fr; }
-  .side .pic.stack .frame { height: 220px; }
   /* A phone is narrower than the fixed frame, so let it shrink to fit. */
   .frame, .caption { width: 100%; max-width: 100%; }
-  .frame, .side .frame { height: 230px; flex: none; }
-  .frame { height: 220px; }
-  .card-pic { height: 220px; }
-  .card-pair { flex-direction: column; }
-  .card-pair .card-pic { flex: none; height: 220px; }
+  .frame, .side .frame { flex: none; }
+  .boxes { display: block; }
+  .box { margin-bottom: 14px; }
+  .card-row { display: block; }
+  .card-pic { max-width: 100%; margin-bottom: 0.8em; }
 }

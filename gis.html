@@ -4,18 +4,21 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Groundwater mapping, Bangarpet &mdash; Aadya Kanchan</title>
-<link rel="stylesheet" href="paper.css?v=20261020d">
+<link rel="stylesheet" href="paper.css?v=20261021c">
 </head>
 <body>
 <div class="content">
 
-<div class="header" id="top"><h1>Groundwater mapping in Bangarpet</h1></div>
+<div class="header" id="top">
+<p class="eyebrow"><a href="index.html">Aadya Kanchan / Maker Portfolio</a></p>
+<h1>Groundwater mapping in Bangarpet</h1>
+</div>
 <div class="tabs">
 <a href="index.html">Home</a>
 <a href="aquaflux.html">AquaFlux</a>
 <a href="niri.html">NIRI</a>
 <a href="arogya.html">Arogya Dx</a>
-<a href="gis.html" class="here">GIS</a>
+<a href="gis.html" class="here">GIS Groundwater</a>
 </div>
 
 <h2>Research Overview</h2>
@@ -37,7 +40,7 @@
 
 <p>Water depth ranged from 5.74 to 77.6 mbgl before the monsoon. Severe depletion was concentrated in the northwest, while the south and east stayed shallower. After the monsoon, a deep pocket of 70 to 85 mbgl persisted in the northwest.</p>
 <div class="row-full">
-<a href="gis/water-level-maps.png" style="display:block;max-width:700px"><img src="gis/water-level-maps.png" alt="Four interpolated maps: depth of water level pre-monsoon and post-monsoon 2024, and groundwater level fluctuation" class="scanbig"></a>
+<a href="gis/water-level-maps.png" style="display:block;max-width:900px"><img src="gis/water-level-maps.png" alt="Four interpolated maps of Bangarpet Taluk: depth of water level pre-monsoon 2024, depth post-monsoon 2024, groundwater level fluctuation, and fluctuation shown as rise and fall" class="scanbig"></a>
 </div>
 
 <h3>3) Seasonal fluctuation</h3>
@@ -46,14 +49,7 @@
 
 <h3>4) Recharge modelling</h3>
 
-<div class="side">
-<div class="words">
 <p>In ArcGIS, I built a groundwater recharge potential index with a weighted linear combination of eight thematic layers. Slope, geology, and geomorphology carried the most weight (21% each), followed by lineament density (11%), with land use, soil texture, depth to water level, and drainage density at 6 to 7% each. Gentle slopes of 0 to 1&deg; ranked highest for recharge suitability.</p>
-</div>
-<div class="pic">
-<a class="frame" href="gis/layer-weights.png"><img src="gis/layer-weights.png" alt="Bar chart of relative importance, assigned weights per GIS layer"></a>
-</div>
-</div>
 <div class="row-full">
 <a href="gis/layers-geomorphology-geology.png" style="display:block;max-width:520px"><img src="gis/layers-geomorphology-geology.png" alt="Two thematic maps of Bangarpet Taluk: geomorphology and geology" class="scanbig"></a>
 </div>
@@ -64,7 +60,11 @@
 <a href="gis/layers-slope-drainage-lineament.png" style="display:block;max-width:700px"><img src="gis/layers-slope-drainage-lineament.png" alt="Three thematic maps of Bangarpet Taluk: slope, drainage density and lineament density" class="scanbig"></a>
 </div>
 
-<h2>Outcome</h2>
+<div class="row-full">
+<a href="gis/layer-weights.png" style="display:block;max-width:560px"><img src="gis/layer-weights.png" alt="Bar chart of relative importance, assigned weights per GIS layer" class="scanbig"></a>
+</div>
+
+<h2>Conclusion</h2>
 
 <div class="side">
 <div class="words">
@@ -75,17 +75,19 @@
 </div>
 </div>
 <div class="row row-2">
-<a class="tile" href="gis/ieee-presentation.jpg"><img src="gis/ieee-presentation.jpg" alt="Presenting at a lectern at IEEE BHTC 2026"></a>
-<a class="tile" href="gis/ieee-mapping-slide.jpg"><img src="gis/ieee-mapping-slide.jpg" alt="The GIS study slide on screen behind the lectern, showing two of the maps"></a>
+<div class="cell" style="flex-grow:0.75"><a class="tile" href="gis/ieee-presentation.jpg"><img src="gis/ieee-presentation.jpg" alt="Presenting at a lectern at IEEE BHTC 2026"></a></div>
+<div class="cell" style="flex-grow:1.333"><a class="tile" href="gis/ieee-mapping-slide.jpg"><img src="gis/ieee-mapping-slide.jpg" alt="The GIS study slide on screen behind the lectern, showing two of the maps"></a></div>
 </div>
-<div class="row row-2">
-<a class="tile" href="gis/water-summit.jpg"><img src="gis/water-summit.jpg" alt="Standing in front of a Water Summit 2025 backdrop"></a>
-<a class="tile" href="gis/gis-poster.jpg"><img src="gis/gis-poster.jpg" alt="Explaining the poster to a visitor at a poster session"></a>
+<div class="row row-2" style="max-width:540px">
+<div class="cell" style="flex-grow:0.75"><a class="tile" href="gis/water-summit.jpg"><img src="gis/water-summit.jpg" alt="Standing in front of a Water Summit 2025 backdrop"></a></div>
+<div class="cell" style="flex-grow:0.634"><a class="tile" href="gis/gis-poster.jpg"><img src="gis/gis-poster.jpg" alt="Explaining the poster to a visitor at a poster session"></a></div>
 </div>
 
 <h2>Videos &amp; resources</h2>
 
-<p><a href="https://budding-innovator.vercel.app/docs/ieee-bhtc-groundwater-gis-ai.pdf">https://budding-innovator.vercel.app/docs/ieee-bhtc-groundwater-gis-ai.pdf</a></p>
+<h3>Research paper</h3>
+<iframe class="paper" src="https://budding-innovator.vercel.app/docs/ieee-bhtc-groundwater-gis-ai.pdf#view=FitH" title="IEEE BHTC paper on the Bangarpet groundwater study" loading="lazy"></iframe>
+<p><a href="https://budding-innovator.vercel.app/docs/ieee-bhtc-groundwater-gis-ai.pdf" target="_blank" rel="noopener">Read the full research paper &nearr;</a></p>
 
 <p><a href="#top">Back to top &uarr;</a> &middot; <a href="index.html">&larr; All projects</a></p>
 

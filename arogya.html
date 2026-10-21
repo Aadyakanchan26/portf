@@ -4,100 +4,109 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Arogya Dx &mdash; Aadya Kanchan</title>
-<link rel="stylesheet" href="paper.css?v=20261020d">
+<link rel="stylesheet" href="paper.css?v=20261021c">
 </head>
 <body>
 <div class="content">
 
-<div class="header" id="top"><h1>Arogya Dx</h1></div>
+<div class="header" id="top">
+<p class="eyebrow"><a href="index.html">Aadya Kanchan / Maker Portfolio</a></p>
+<h1>Arogya Dx</h1>
+</div>
 <div class="tabs">
 <a href="index.html">Home</a>
 <a href="aquaflux.html">AquaFlux</a>
 <a href="niri.html">NIRI</a>
 <a href="arogya.html" class="here">Arogya Dx</a>
-<a href="gis.html">GIS</a>
+<a href="gis.html">GIS Groundwater</a>
 </div>
 
-<h2>Current solutions</h2>
-
-<div class="side">
-<div class="words">
-<p>Current lipid profiling methods rely on expensive reagents, laboratory infrastructure, trained personnel, and require 24 hours for results, making them inaccessible for routine and large-scale screening, especially in rural and resource-limited settings. Consequently, testing is often delayed until symptoms appear, by which time disease progression is advanced, leaving over 50% of high-risk individuals undiagnosed.</p>
-</div>
-<div class="pic">
-<a class="frame photo" href="arogya/atl-lab-work.png"><img src="arogya/atl-lab-work.png" alt="Working on the black optical chamber on a bench in the ATL lab, wearing gloves"></a>
-</div>
-</div>
+<p class="intro">A patent-published, portable microfluidic point-of-care device for rapid, affordable, reagent-free lipid screening in rural and resource-limited settings.</p>
 
 <h2>Technical Systems Overview</h2>
 
 <div class="side">
 <div class="words">
 <p>A simple, cost-effective point-of-care screening tool that captures plasma spectral signatures from 410&ndash;940 nm across UV, visible, and near-infrared regions. By leveraging lipid-induced changes in optical scattering, where different concentrations produce distinct spectral signatures, the platform enables real-time, reagent free detection and offers a scalable solution for accessible lipid screening in underserved communities.</p>
+<ul class="features">
+<li>Reagent-free plasma turbidity analysis</li>
+<li>5&ndash;10 minute screening workflow</li>
+<li>Multispectral sensing across 410&ndash;940 nm</li>
+<li>Designed for decentralized preventive healthcare</li>
+<li>Mass lipid screening for rural preventive healthcare</li>
+</ul>
 </div>
-<div class="pic">
+<div class="pic" style="flex-basis:261px">
 <a class="frame photo" href="arogya/device-topdown.png"><img src="arogya/device-topdown.png" alt="Top view of the device: a black chamber, a blue sample stage and a sensor board with a lit LED"></a>
 </div>
 </div>
 <div class="row-full">
-<a href="arogya/experimental-circuit.png" style="display:block;max-width:700px"><img src="arogya/experimental-circuit.png" alt="Experimental circuit diagram listing system components and the normalisation formulas used" class="scanbig"></a>
-</div>
-<div class="row row-2">
-<a class="tile" href="arogya/wiring-desk-1.jpg"><img src="arogya/wiring-desk-1.jpg" alt="Wiring a sensor board at a desk, with the circuit diagram open on a monitor behind"></a>
-<a class="tile" href="arogya/wiring-desk-2.jpg"><img src="arogya/wiring-desk-2.jpg" alt="Close view of the same desk: a breakout board being soldered, the circuit diagram on the monitor"></a>
+<a href="arogya/circuit-only.png" style="display:block;max-width:620px"><img src="arogya/circuit-only.png" alt="The experimental circuit: a 12 V supply and buck module, relay, two push buttons, a motor, the ESP32, the AS7265x spectral triad and the TCS34725 RGB sensor" class="scanbig"></a>
 </div>
 
-<h2>IISc</h2>
+<p><strong>Normalisation.</strong> Each channel is taken as a share of the three: <em>R</em><sub>norm</sub> = <em>R</em>/(<em>R</em>+<em>G</em>+<em>B</em>) &times; 100, and likewise for <em>G</em><sub>norm</sub> and <em>B</em><sub>norm</sub>. The change between inlet and outlet is &Delta;(%) = (<em>I</em><sub>high</sub> &minus; <em>I</em><sub>low</sub>) / <em>I</em><sub>low</sub> &times; 100.</p>
+
+<h3>Current solutions</h3>
+
+<p>Current lipid profiling methods rely on expensive reagents, laboratory infrastructure, trained personnel, and require 12&ndash;24 hours for results, making them inaccessible for routine and large-scale screening, especially in rural and resource-limited settings. Consequently, testing is often delayed until symptoms appear, by which time disease progression is advanced, leaving over 50% of high-risk individuals undiagnosed.</p>
+
+<h2>Journey</h2>
+
+<h3>1. Where the journey began &mdash; IISc</h3>
 
 <div class="side">
 <div class="words">
-<p>Undertook a team research project in, presented under the mentorship of a doctoral researcher. Pushed blood through a 1000 &micro;m-wide microchannel at 3, 13, and 23 &micro;L/s, splitting the half-channel field of view into three zones: near wall, centre, and far wall. Using manual tracking in ImageJ, followed RBCs across 13 timed frames per zone and calculated displacement, velocity, and trajectory. Velocity rose from the wall toward the centre, and the central zones converged into a plug-like profile, while near-wall cells tumbled erratically under high shear. RBCs migrated to the core under inertial lift and wall interactions, leaving a cell-free plasma layer at the edges, the F&aring;hr&aelig;us&ndash;Lindqvist effect in action.</p>
+<p><strong>Summer Research Internship at IISc</strong> &mdash; Indian Institute of Science, Bengaluru, Department of Mechanical Engineering. Selected as 1 of 15 students nationally for a research internship at IISc, working in Dr. Saptarshi Basu&rsquo;s laboratory on fluid mechanics and microfluidics. I attended advanced research sessions led by IISc faculty and PhD scholars, and explored laboratories working at the frontiers of engineering and science.</p>
+
+<p>Undertook a team research project, presented under the mentorship of a doctoral researcher. Pushed blood through a 1000 &micro;m-wide microchannel at 3, 13, and 23 &micro;L/s, splitting the half-channel field of view into three zones: near wall, centre, and far wall. Using manual tracking in ImageJ, followed RBCs across 13 timed frames per zone and calculated displacement, velocity, and trajectory. Velocity rose from the wall toward the centre, and the central zones converged into a plug-like profile, while near-wall cells tumbled erratically under high shear. RBCs migrated to the core under inertial lift and wall interactions, leaving a cell-free plasma layer at the edges, the F&aring;hr&aelig;us&ndash;Lindqvist effect in action.</p>
+
+<p>That first exposure to manipulating fluids at the microscale sparked a larger question: could microfluidics be used to make preventive diagnostics faster, simpler and more accessible? That question eventually became Arogya Dx.</p>
 </div>
 <div class="pic">
 <a class="frame photo" href="arogya/iisc-team.jpg"><img src="arogya/iisc-team.jpg" alt="Presenting a slide titled Blood Flow in Microchannels with the project team"></a>
 </div>
 </div>
 <!-- CHECK: the reference text reads "a team research project in, presented" - a word is missing after "in". -->
-<div class="row row-2">
-<a class="tile" href="arogya/microchannel-magnifications.png"><img src="arogya/microchannel-magnifications.png" alt="Four microscope images of the same microchannel at 10x, 50x, 100x and 200x magnification"></a>
-<a class="tile" href="arogya/tracking-zones.png"><img src="arogya/tracking-zones.png" alt="Microscope frame of the channel divided by dotted lines into three numbered zones labelled w/6, w/3 and w/2"></a>
+<div class="row row-2" style="max-width:611px">
+<div class="cell" style="flex-grow:0.352"><a class="tile" href="arogya/microchannel-magnifications.png"><img src="arogya/microchannel-magnifications.png" alt="Four microscope images of the same microchannel at 10x, 50x, 100x and 200x magnification"></a></div>
+<div class="cell" style="flex-grow:1.218"><a class="tile" href="arogya/tracking-zones.png"><img src="arogya/tracking-zones.png" alt="Microscope frame of the channel divided by dotted lines into three numbered zones labelled w/6, w/3 and w/2"></a></div>
 </div>
 <div class="row row-2">
-<a class="tile" href="arogya/rbc-deformation-modes.png"><img src="arogya/rbc-deformation-modes.png" alt="Diagram of red blood cell behaviour at increasing shear rate: tumbling, rolling, and tank-treading or swinging"></a>
-<a class="tile" href="arogya/iisc-lab.jpg"><img src="arogya/iisc-lab.jpg" alt="Students around a microscope rig in a fluid mechanics laboratory"></a>
+<div class="cell" style="flex-grow:1.754"><a class="tile" href="arogya/rbc-deformation-modes.png"><img src="arogya/rbc-deformation-modes.png" alt="Diagram of red blood cell behaviour at increasing shear rate: tumbling, rolling, and tank-treading or swinging"></a></div>
+<div class="cell" style="flex-grow:1.784"><a class="tile" href="arogya/flow-analysis-23ul.png"><img src="arogya/flow-analysis-23ul.png" alt="Panel of six graphs showing displacement, velocity and cumulative time for left periphery, middle and right periphery at 23 microlitres per second"></a></div>
 </div>
 <div class="row row-2">
-<a class="tile" href="arogya/flow-analysis-23ul.png"><img src="arogya/flow-analysis-23ul.png" alt="Panel of six graphs showing displacement, velocity and cumulative time for left periphery, middle and right periphery at 23 microlitres per second"></a>
-<a class="tile" href="arogya/iisc-mech-block.jpg"><img src="arogya/iisc-mech-block.jpg" alt="The research team outside the Mechanical Engineering PE Block at IISc"></a>
+<div class="cell" style="flex-grow:1.525"><a class="tile" href="arogya/iisc-lab.jpg"><img src="arogya/iisc-lab.jpg" alt="Students around a microscope rig in a fluid mechanics laboratory"></a></div>
+<div class="cell" style="flex-grow:0.948"><a class="tile" href="arogya/iisc-mech-block.jpg"><img src="arogya/iisc-mech-block.jpg" alt="The research team outside the Mechanical Engineering PE Block at IISc"></a></div>
 </div>
 
-<h2>Building Arogya Dx</h2>
+<h3>2. Building Arogya Dx</h3>
 
-<div class="side">
-<div class="words">
+<div class="row row-2">
+<div class="cell" style="flex-grow:1.322"><a class="tile" href="arogya/wiring-desk-1.jpg"><img src="arogya/wiring-desk-1.jpg" alt="Wiring a sensor board at a desk, with the circuit diagram open on a monitor behind"></a></div>
+<div class="cell" style="flex-grow:0.944"><a class="tile" href="arogya/wiring-desk-2.jpg"><img src="arogya/wiring-desk-2.jpg" alt="Close view of the same desk: a breakout board being soldered, the circuit diagram on the monitor"></a></div>
+</div>
+
 <p>A PDMS microfluidic platform was used. A PEG&ndash;water solution with egg yolk as a lipid analog was prepared in concentrations of 1:9, 2:8, 3:7, 4:6, and 5:5. Samples were centrifuged prior to testing. Optical data was collected using a TCS34725 RGB sensor and an AS7265 TRIAD spectral sensor (410&ndash;940 nm, 18 channels). The setup was enclosed in a light-isolated chamber to minimize interference.</p>
-</div>
-<div class="pic">
-<a class="frame photo" href="arogya/build-1.jpg"><img src="arogya/build-1.jpg" alt="The black chamber with the blue sample stage inside it, on a red surface"></a>
-</div>
-</div>
 <div class="row row-2">
-<a class="tile" href="arogya/build-6.jpg"><img src="arogya/build-6.jpg" alt="Assembling the black chamber on a red work surface, wearing blue gloves"></a>
-<a class="tile" href="arogya/build-3.jpg"><img src="arogya/build-3.jpg" alt="Several PDMS microfluidic chips with coloured channels laid out on a surface"></a>
+<div class="cell" style="flex-grow:0.824"><a class="tile" href="arogya/build-6.jpg"><img src="arogya/build-6.jpg" alt="Assembling the black chamber on a red work surface, wearing blue gloves"></a></div>
+<div class="cell" style="flex-grow:1.043"><a class="tile" href="arogya/build-3.jpg"><img src="arogya/build-3.jpg" alt="Several PDMS microfluidic chips with coloured channels laid out on a surface"></a></div>
 </div>
-<div class="row row-2">
-<a class="tile" href="arogya/build-5.jpg"><img src="arogya/build-5.jpg" alt="Sample preparation: a beaker of yellow solution, pipette and chips on the bench"></a>
-<a class="tile" href="arogya/build-4.jpg"><img src="arogya/build-4.jpg" alt="OLED display on the side of the enclosure showing a readout"></a>
+<div class="row row-2" style="max-width:715px">
+<div class="cell" style="flex-grow:0.893"><a class="tile" href="arogya/build-5.jpg"><img src="arogya/build-5.jpg" alt="Sample preparation: a beaker of yellow solution, pipette and chips on the bench"></a></div>
+<div class="cell" style="flex-grow:0.952"><a class="tile" href="arogya/build-1.jpg"><img src="arogya/build-1.jpg" alt="The black chamber with the blue sample stage inside it, on a red surface"></a></div>
 </div>
-<div class="row row-2">
-<a class="tile" href="videos/arogya-optical-setup.mp4"><video controls preload="metadata" poster="arogya/build-2.jpg"><source src="videos/arogya-optical-setup.mp4" type="video/mp4">Your browser does not support this video.</video></a>
-<a class="tile" href="videos/arogya-sensor-test.mp4"><video controls preload="metadata"><source src="videos/arogya-sensor-test.mp4" type="video/mp4">Your browser does not support this video.</video></a>
+<div class="row row-2" style="max-width:443px">
+<a class="tile" style="flex-grow:0.562" href="videos/arogya-optical-setup.mp4"><video controls preload="metadata"><source src="videos/arogya-optical-setup.mp4" type="video/mp4">Your browser does not support this video.</video></a>
+<a class="tile" style="flex-grow:0.566" href="videos/arogya-sensor-test.mp4"><video controls preload="metadata"><source src="videos/arogya-sensor-test.mp4" type="video/mp4">Your browser does not support this video.</video></a>
 </div>
 
-<h2>Plasma Validation</h2>
+<h3>3. Plasma Validation</h3>
 
 <div class="side">
 <div class="words">
+<p>Presented Arogya Dx to the Director of Internal Medicine at Trilife Hospital, explaining the technology, experimental methodology and its potential application in preventive cardiovascular screening. This enabled access to plasma samples for preliminary testing and validation of the concept.</p>
+
 <p>Two plasma samples with distinct lipid profiles were tested under identical conditions. Their spectral signatures were mapped and compared to evaluate real-world applicability.</p>
 <ol type="a">
 <li>The strongest discrimination between lipid concentrations appeared at 645 nm (red), 535 nm (green), 410 nm (blue), and in the NIR range.</li>
@@ -114,9 +123,21 @@
 <a href="arogya/mean-spectral-response.jpg" style="display:block;max-width:700px"><img src="arogya/mean-spectral-response.jpg" alt="Line chart of mean spectral response by concentration, with six series from 0 to 50 percent across 410 to 940 nm" class="scanbig"></a>
 </div>
 <div class="row row-2">
-<a class="tile" href="arogya/plasma-testing.png"><img src="arogya/plasma-testing.png" alt="Spectral signature analysis slide with a total cholesterol table and photographs of separated blood and plasma"></a>
-<a class="tile" href="arogya/icetems-podium.jpg"><img src="arogya/icetems-podium.jpg" alt="Presenting the microfluidic device paper at a conference podium"></a>
+<div class="cell" style="flex-grow:1.255"><a class="tile" href="arogya/plasma-comparison.png"><img src="arogya/plasma-comparison.png" alt="Line chart comparing the spectral signatures of plasma sample 1 and plasma sample 2 from 410 to 860 nm"></a></div>
+<div class="cell" style="flex-grow:1.702"><a class="tile" href="arogya/plasma-testing.png"><img src="arogya/plasma-testing.png" alt="Spectral signature analysis: baseline, plasma sample 1 and plasma sample 2 intensity from 410 to 860 nm"></a></div>
 </div>
+
+<p>The research behind Arogya Dx was presented at the IEEE ICETEMS 2026 Conference, the 3rd International Conference on Emerging Trends in Engineering and Medical Sciences, as &ldquo;Microfluidic Device for Rapid Detection of Familial Hyperlipidemia Using Optical Turbidity Sensing&rdquo;, where it received the best paper award.</p>
+
+<div class="row-full">
+<a href="arogya/icetems-podium.jpg" style="display:block;max-width:560px"><img src="arogya/icetems-podium.jpg" alt="Presenting the microfluidic device paper at the IEEE ICETEMS 2026 conference" class="scanbig"></a>
+</div>
+
+<h2>Videos &amp; resources</h2>
+
+<h3>Research paper</h3>
+<iframe class="paper" src="https://budding-innovator.vercel.app/docs/ieee-icetems-microfluidic-hyperlipidemia.pdf#view=FitH" title="IEEE ICETEMS paper on the microfluidic hyperlipidemia device" loading="lazy"></iframe>
+<p><a href="https://budding-innovator.vercel.app/docs/ieee-icetems-microfluidic-hyperlipidemia.pdf" target="_blank" rel="noopener">Read the full research paper &nearr;</a></p>
 
 <p><a href="#top">Back to top &uarr;</a> &middot; <a href="index.html">&larr; All projects</a></p>
 

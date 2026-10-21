@@ -1,0 +1,12 @@
+.DS_Store
+.source-materials/
+.vercel
+
+# working notes and backups - not for the client's public repository
+.local-before-sync/
+CALL-TRANSCRIPT-*.txt
+CLIENT-CHANGES.md
+OPEN-QUESTIONS.md
+*.orig
+*.bak
+*.prelevel

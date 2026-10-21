@@ -4,43 +4,35 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AquaFlux &mdash; Aadya Kanchan</title>
-<link rel="stylesheet" href="paper.css?v=20261020d">
+<link rel="stylesheet" href="paper.css?v=20261021c">
 </head>
 <body>
 <div class="content">
 
-<div class="header" id="top"><h1>AquaFlux</h1></div>
+<div class="header" id="top">
+<p class="eyebrow"><a href="index.html">Aadya Kanchan / Maker Portfolio</a></p>
+<h1>AquaFlux</h1>
+</div>
 <div class="tabs">
 <a href="index.html">Home</a>
 <a href="aquaflux.html" class="here">AquaFlux</a>
 <a href="niri.html">NIRI</a>
 <a href="arogya.html">Arogya Dx</a>
-<a href="gis.html">GIS</a>
+<a href="gis.html">GIS Groundwater</a>
 </div>
 
 <h2>Inspiration</h2>
 
 <div class="side">
 <div class="words">
-<p>On a bus ride home, I watched a rainwater pool around a drain, unable to reach the outlet sitting directly beneath it. The water had somewhere to go, so why couldn't it get there? Urban waterlogging is rampant, and as extreme rainfall and rapid urbanization intensify, surface drainage inlets can't capture water fast enough. Large volumes and high-intensity rainfall either skim past current inlets or cause backflow due to high pressure. The consequences are vast, from flooded roads, electrocution risks, delayed emergency services, and billions spent in annual losses, all traced back to an inefficient surface drainage inlet.</p>
+<p>On a bus ride home, I watched a rainwater pool around a drain, unable to reach the outlet sitting directly beneath it. The water had somewhere to go, so why couldn&rsquo;t it get there? Urban waterlogging is rampant, and as extreme rainfall and rapid urbanization intensify, surface drainage inlets can&rsquo;t capture water fast enough. Large volumes and high-intensity rainfall either skim past current inlets or cause backflow due to high pressure. The consequences are vast, from flooded roads, electrocution risks, delayed emergency services, and billions spent in annual losses, all traced back to an inefficient surface drainage inlet.</p>
 </div>
-<div class="pic stack">
-<div>
-<a class="frame photo" href="aquaflux/waterlogging.jpg"><img src="aquaflux/waterlogging.jpg" alt="Buses and a motorcycle driving through deep standing water on a flooded city road"></a>
-</div>
-<div>
-<a class="frame photo" href="aquaflux/waterlogging-traffic.png"><img src="aquaflux/waterlogging-traffic.png" alt="Traffic backed up along a flooded arterial road"></a>
-</div>
-<div>
-<a class="frame photo" href="aquaflux/waterlogging-street.png"><img src="aquaflux/waterlogging-street.png" alt="A car and a scooter pushing through knee-deep water on a street"></a>
-</div>
-<div>
-<a class="frame" href="aquaflux/news-waterlogging.png"><img src="aquaflux/news-waterlogging.png" alt="Newspaper graphic headlined after 10 years, no solution to waterlogging, with a timeline of government decisions"></a>
-</div>
+<div class="pic">
+<a class="frame" href="aquaflux/waterlogging-collage.jpg"><img src="aquaflux/waterlogging-collage.jpg" alt="Collage of urban waterlogging: a bus throwing up spray on a flooded road, traffic standing in water, a car and scooter in knee-deep water, and a newspaper feature headlined after 10 years, no solution to waterlogging"></a>
 </div>
 </div>
 
-<h2>Vision</h2>
+<h2>Objective</h2>
 
 <p>To design a surface drainage inlet that can increase drainage efficiency and handle high-intensity rainfall, with zero energy requirements, retrofittable without changing current plumbing infrastructure, and cheap enough to scale across every road.</p>
 
@@ -65,7 +57,7 @@
 <div class="words">
 <p>Worked with municipal engineers to conduct field studies at two waterlogging sites in my city to clearly define real-world drainage requirements. Measuring rainfall intensity, flood depth, inlet discharge, and catchment area per drain.</p>
 </div>
-<div class="pic stack">
+<div class="pic stack" style="flex-basis:235px">
 <div>
 <a class="frame photo" href="aquaflux/field-site-road.png"><img src="aquaflux/field-site-road.png" alt="A wet road with standing water at the kerb, vehicles passing"></a>
 </div>
@@ -74,7 +66,6 @@
 </div>
 </div>
 </div>
-
 
 <h3>2. Design Optimisation</h3>
 
@@ -86,76 +77,121 @@
 <li>Enhancing performance through groove layering and parallel set up</li>
 </ul>
 
+<h4>a) Vane angle study</h4>
+
 <div class="row row-2">
-<a class="tile" href="aquaflux/calc-case1.png"><img src="aquaflux/calc-case1.png" alt="Handwritten calculation of catchment per drain, drain discharge and accumulation for the current scenario"></a>
-<a class="tile" href="aquaflux/calc-case2.png"><img src="aquaflux/calc-case2.png" alt="Handwritten calculation of flooding volume and rainfall flow rate for a road with no drain"></a>
+<div class="cell" style="flex-grow:3.046"><a class="tile" href="aquaflux/ansys-layered-a.png"><img src="aquaflux/ansys-layered-a.png" alt="ANSYS streamline render of a layered groove geometry"></a></div>
+<div class="cell" style="flex-grow:3.069"><a class="tile" href="aquaflux/ansys-layered-b.png"><img src="aquaflux/ansys-layered-b.png" alt="ANSYS streamline render of a second layered groove geometry"></a></div>
 </div>
+
 <div class="row row-2">
-<a class="tile" href="aquaflux/ansys-velocity-topview.png"><img src="aquaflux/ansys-velocity-topview.png" alt="Top view velocity contour of the vortex device, red at the centre fading to blue at the walls"></a>
-<a class="tile" href="aquaflux/ansys-vortex-core.png"><img src="aquaflux/ansys-vortex-core.png" alt="ANSYS streamline render showing a tight vortex forming in a cone below a horizontal inlet pipe"></a>
+<div class="cell" style="flex-grow:3.022"><a class="tile" href="aquaflux/ansys-layered-c.png"><img src="aquaflux/ansys-layered-c.png" alt="ANSYS streamline render of a third layered geometry"></a></div>
+<div class="cell" style="flex-grow:2.944"><a class="tile" href="aquaflux/ansys-single-cone.png"><img src="aquaflux/ansys-single-cone.png" alt="ANSYS streamline render of a single cone with the inlet pipe entering from the side"></a></div>
 </div>
+
+<h4>b) Shape study</h4>
+
 <div class="row row-2">
-<a class="tile" href="aquaflux/ansys-two-cones.png"><img src="aquaflux/ansys-two-cones.png" alt="ANSYS streamline render comparing two cone geometries side by side"></a>
-<a class="tile" href="aquaflux/ansys-double-vortex.png"><img src="aquaflux/ansys-double-vortex.png" alt="ANSYS velocity streamline render labelled double vortex, with a velocity scale from 0 to 4.15 metres per second"></a>
+<div class="cell" style="flex-grow:1.18"><a class="tile" href="aquaflux/ansys-velocity-topview.png"><img src="aquaflux/ansys-velocity-topview.png" alt="Top view velocity contour of the vortex device, red at the centre fading to blue at the walls"></a></div>
+<div class="cell" style="flex-grow:1.739"><a class="tile" href="aquaflux/ansys-vortex-core.png"><img src="aquaflux/ansys-vortex-core.png" alt="ANSYS streamline render showing a tight vortex forming in a cone below a horizontal inlet pipe"></a></div>
 </div>
+
 <div class="row row-2">
-<a class="tile" href="aquaflux/ansys-parallel.png"><img src="aquaflux/ansys-parallel.png" alt="ANSYS streamline render of the parallel arrangement, with flow splitting between two cones"></a>
-<a class="tile" href="aquaflux/ansys-single-cone.png"><img src="aquaflux/ansys-single-cone.png" alt="ANSYS streamline render of a single cone with the inlet pipe entering from the side"></a>
+<div class="cell" style="flex-grow:2.174"><a class="tile" href="aquaflux/ansys-two-cones.png"><img src="aquaflux/ansys-two-cones.png" alt="ANSYS streamline render comparing two cone geometries side by side"></a></div>
+<div class="cell" style="flex-grow:2.22"><a class="tile" href="aquaflux/ansys-double-vortex.png"><img src="aquaflux/ansys-double-vortex.png" alt="ANSYS velocity streamline render labelled double vortex, with a velocity scale from 0 to 4.15 metres per second"></a></div>
 </div>
+
 <div class="row row-2">
-<a class="tile" href="aquaflux/ansys-flat-grate.png"><img src="aquaflux/ansys-flat-grate.png" alt="ANSYS streamline render of a flat grate inlet, with the flow staying shallow and spread out"></a>
-<a class="tile" href="aquaflux/ansys-layered-c.png"><img src="aquaflux/ansys-layered-c.png" alt="ANSYS streamline render of a third layered geometry"></a>
+<div class="cell" style="flex-grow:2.947"><a class="tile" href="aquaflux/ansys-parallel.png"><img src="aquaflux/ansys-parallel.png" alt="ANSYS streamline render of the parallel arrangement, with flow splitting between two cones"></a></div>
+<div class="cell" style="flex-grow:2.958"><a class="tile" href="aquaflux/ansys-flat-grate.png"><img src="aquaflux/ansys-flat-grate.png" alt="ANSYS streamline render of a flat grate inlet, with the flow staying shallow and spread out"></a></div>
 </div>
-<div class="row row-2">
-<a class="tile" href="aquaflux/ansys-layered-a.png"><img src="aquaflux/ansys-layered-a.png" alt="ANSYS streamline render of a layered groove geometry"></a>
-<a class="tile" href="aquaflux/ansys-layered-b.png"><img src="aquaflux/ansys-layered-b.png" alt="ANSYS streamline render of a second layered groove geometry"></a>
+
+<h4>Lab records / Calculations</h4>
+
+<div class="row row-2" style="max-width:580px">
+<div class="cell" style="flex-grow:0.814"><a class="tile" href="aquaflux/calc-case1.png"><img src="aquaflux/calc-case1.png" alt="Handwritten calculation of catchment per drain, drain discharge and accumulation for the current scenario"></a></div>
+<div class="cell" style="flex-grow:0.78"><a class="tile" href="aquaflux/calc-case2.png"><img src="aquaflux/calc-case2.png" alt="Handwritten calculation of flooding volume and rainfall flow rate for a road with no drain"></a></div>
 </div>
-<div class="row row-2">
-<a class="tile" href="aquaflux/sketch-geometry-factor.png"><img src="aquaflux/sketch-geometry-factor.png" alt="Handwritten page headed factor geometry shape, comparing circular and other cross sections"></a>
-<a class="tile" href="aquaflux/calc-discharge.png"><img src="aquaflux/calc-discharge.png" alt="Handwritten discharge calculation using Q equals Cd times A times root 2gh"></a>
+
+<div class="row row-2" style="max-width:580px">
+<div class="cell" style="flex-grow:0.629"><a class="tile" href="aquaflux/sketch-geometry-factor.png"><img src="aquaflux/sketch-geometry-factor.png" alt="Handwritten page headed factor geometry shape, comparing circular and other cross sections"></a></div>
+<div class="cell" style="flex-grow:0.669"><a class="tile" href="aquaflux/calc-discharge.png"><img src="aquaflux/calc-discharge.png" alt="Handwritten discharge calculation using Q equals Cd times A times root 2gh"></a></div>
 </div>
-<div class="row row-2">
-<a class="tile" href="aquaflux/sketch-kerb-opening.png"><img src="aquaflux/sketch-kerb-opening.png" alt="Handwritten page about gullies getting blocked and kerb opening inlet dimensions"></a>
-<a class="tile" href="aquaflux/sketch-attachment.png"><img src="aquaflux/sketch-attachment.png" alt="Handwritten sketch asking how to attach the device to a real drain opening, with parallel and perpendicular drains drawn"></a>
+
+<div class="row row-2" style="max-width:580px">
+<div class="cell" style="flex-grow:0.684"><a class="tile" href="aquaflux/sketch-kerb-opening.png"><img src="aquaflux/sketch-kerb-opening.png" alt="Handwritten page about gullies getting blocked and kerb opening inlet dimensions"></a></div>
+<div class="cell" style="flex-grow:0.711"><a class="tile" href="aquaflux/sketch-attachment.png"><img src="aquaflux/sketch-attachment.png" alt="Handwritten sketch asking how to attach the device to a real drain opening, with parallel and perpendicular drains drawn"></a></div>
 </div>
-<div class="row row-2">
-<a class="tile" href="aquaflux/sketch-irc-kerb.png"><img src="aquaflux/sketch-irc-kerb.png" alt="Handwritten page noting IRC guidance and kerb opening dimensions of 800 to 600 mm"></a>
-<a class="tile" href="aquaflux/sketch-grate-openings.png"><img src="aquaflux/sketch-grate-openings.png" alt="Handwritten page on grate openings, non-surcharged, transition and surcharged flow cases"></a>
+
+<div class="row row-2" style="max-width:580px">
+<div class="cell" style="flex-grow:0.727"><a class="tile" href="aquaflux/sketch-irc-kerb.png"><img src="aquaflux/sketch-irc-kerb.png" alt="Handwritten page noting IRC guidance and kerb opening dimensions of 800 to 600 mm"></a></div>
+<div class="cell" style="flex-grow:0.735"><a class="tile" href="aquaflux/sketch-grate-openings.png"><img src="aquaflux/sketch-grate-openings.png" alt="Handwritten page on grate openings, non-surcharged, transition and surcharged flow cases"></a></div>
 </div>
-<div class="row row-2">
-<a class="tile" href="aquaflux/sketch-cone-stability.png"><img src="aquaflux/sketch-cone-stability.png" alt="Handwritten page comparing a cone against a cylinder for vortex stability"></a>
-<a class="tile" href="aquaflux/sketch-corner-eddies.png"><img src="aquaflux/sketch-corner-eddies.png" alt="Handwritten page showing square and rectangular inlets creating corner eddies"></a>
+
+<div class="row row-2" style="max-width:580px">
+<div class="cell" style="flex-grow:0.744"><a class="tile" href="aquaflux/sketch-cone-stability.png"><img src="aquaflux/sketch-cone-stability.png" alt="Handwritten page comparing a cone against a cylinder for vortex stability"></a></div>
+<div class="cell" style="flex-grow:0.785"><a class="tile" href="aquaflux/sketch-corner-eddies.png"><img src="aquaflux/sketch-corner-eddies.png" alt="Handwritten page showing square and rectangular inlets creating corner eddies"></a></div>
 </div>
-<div class="row row-2">
-<a class="tile" href="aquaflux/sketch-cylinder-cone.png"><img src="aquaflux/sketch-cylinder-cone.png" alt="Handwritten page sketching a cylinder plus cone shape with vane angle and inlet outlet questions"></a>
-<a class="tile" href="aquaflux/calc-amplification.png"><img src="aquaflux/calc-amplification.png" alt="Handwritten note: inlet flow 3 litres per minute, outlet flow 5 litres per minute, amplification ratio 1.67, 67 percent increase in effective discharge"></a>
+
+<div class="row row-2" style="max-width:580px">
+<div class="cell" style="flex-grow:0.786"><a class="tile" href="aquaflux/sketch-cylinder-cone.png"><img src="aquaflux/sketch-cylinder-cone.png" alt="Handwritten page sketching a cylinder plus cone shape with vane angle and inlet outlet questions"></a></div>
+<div class="cell" style="flex-grow:1.586"><a class="tile" href="aquaflux/calc-amplification.png"><img src="aquaflux/calc-amplification.png" alt="Handwritten note: inlet flow 3 litres per minute, outlet flow 5 litres per minute, amplification ratio 1.67, 67 percent increase in effective discharge"></a></div>
 </div>
-<div class="row-full">
-<a href="aquaflux/lab-record-pages.jpg" style="display:block;max-width:700px"><img src="aquaflux/lab-record-pages.jpg" alt="Several annotated lab record pages laid out side by side" class="scanbig"></a>
+
+<div class="row-full" style="max-width:580px">
+<a href="aquaflux/lab-record-pages.jpg" style="display:block;max-width:580px"><img src="aquaflux/lab-record-pages.jpg" alt="Several annotated lab record pages laid out side by side" class="scanbig"></a>
 </div>
-<div class="row-full">
-<a href="aquaflux/math-analysis.png" style="display:block;max-width:700px"><img src="aquaflux/math-analysis.png" alt="Mathematical analysis panel with design conditions, evaluation parameters, formulas and dimensioning table" class="scanbig"></a>
+
+<h4>Mathematical analysis</h4>
+
+<p>To further understand the hydraulic behaviour of the devices using mathematical relations, and to verify the simulations done across shapes, vane angles and design iterations.</p>
+
+<div class="boxes">
+<div class="box">
+<h5>Design conditions</h5>
+<ul>
+<li>Catchment area = <strong>200 m&sup2;</strong></li>
+<li>Rainfall intensity = <strong>150 mm/hr</strong></li>
+<li>Runoff coefficient = <strong>0.9</strong></li>
+<li>Rain discharge: <em>Q</em> = 7.5 L/s</li>
+<li>Flood head = <strong>0.6 m</strong></li>
+<li>Ideal outlet velocity: <em>V</em><sub>ideal</sub> = 3.43 m/s</li>
+</ul>
 </div>
+<div class="box">
+<h5>Evaluation parameters</h5>
+<p><strong>Flow:</strong> <em>V</em><sub>i</sub>, <em>V</em><sub>o</sub>, <em>Q</em></p>
+<p><strong>Hydraulic:</strong> Reynolds number <em>Re</em>, Froude number <em>Fr</em>, pressure gradient d<em>P</em>/d<em>z</em></p>
+<p><strong>Vortex:</strong> swirl number <em>S</em></p>
+</div>
+<div class="box">
+<h5>Formula</h5>
+<p class="eq"><em>Q</em> = <em>C</em> &middot; <em>I</em> &middot; <em>A</em></p>
+<p class="eq"><em>V</em> = &radic;<span class="rad">2<em>g</em>(<em>h</em> &minus; <em>h</em><sub>L</sub>)</span></p>
+<p class="eq"><em>h</em><sub>L</sub> = <em>K</em> &middot; <em>V</em>&sup2; / 2<em>g</em></p>
+<p class="eq"><em>Fr</em> = <em>V</em> / &radic;<span class="rad"><em>gD</em></span></p>
+<p class="eq"><em>Re</em> = <em>&rho;VD</em> / <em>&mu;</em></p>
+<p class="eq"><em>S</em> = <em>V</em><sub>&theta;</sub> / <em>V</em></p>
+</div>
+</div>
+
+<p><strong>Dimensioning.</strong> Outlet diameter 6.3 cm &middot; chamber diameter 14 cm &middot; chamber height 14 cm &middot; inlet diameter 9 cm.</p>
 
 <h3>3. Prototyping &amp; Testing</h3>
 
-<div class="side">
-<div class="words">
 <p>The optimized designs were 3D-printed and tested under varying rainfall intensities and turbidity levels. The results showed a 22% to 89% increase in discharge rate, exceeding the 15% efficiency benchmark required.</p>
-</div>
-<div class="pic">
-<a class="frame" href="aquaflux/experiment-setup.png"><img src="aquaflux/experiment-setup.png" alt="Experiment setup diagram listing hardware components and the circuit used to log flow and turbidity"></a>
-</div>
+
+<div class="row-full">
+<a href="aquaflux/experiment-circuit.png" style="display:block;max-width:650px"><img src="aquaflux/experiment-circuit.png" alt="Circuit for the test rig: two water flow sensors, an ESP32-WROOM-32, LED indicators, transistor drivers and an SD card module" class="scanbig"></a>
 </div>
 <!-- CHECK: the reference sentence ends "benchmark required for" - the rest of it is missing. -->
 
 <div class="row row-2">
-<a class="tile" href="videos/aquaflux-vortex-test.mp4"><video controls preload="metadata" poster="aquaflux/print-parallel-vortex.jpg"><source src="videos/aquaflux-vortex-test.mp4" type="video/mp4">Your browser does not support this video.</video></a>
-<a class="tile" href="videos/aquaflux-water-channel-test.mp4"><video controls preload="metadata"><source src="videos/aquaflux-water-channel-test.mp4" type="video/mp4">Your browser does not support this video.</video></a>
+<a class="tile" style="flex-grow:0.562" href="videos/aquaflux-vortex-test.mp4"><video controls preload="metadata"><source src="videos/aquaflux-vortex-test.mp4" type="video/mp4">Your browser does not support this video.</video></a>
+<a class="tile" style="flex-grow:1.767" href="videos/aquaflux-water-channel-test.mp4"><video controls preload="metadata"><source src="videos/aquaflux-water-channel-test.mp4" type="video/mp4">Your browser does not support this video.</video></a>
 </div>
-<div class="row row-2">
-<a class="tile" href="aquaflux/device-variants.png"><img src="aquaflux/device-variants.png" alt="Four panels: normal vortex device, layered vortex device design 1, layered vortex device design 2, and parallel vortex device"></a>
-<a class="tile" href="aquaflux/slide-13.jpg"><img src="aquaflux/slide-13.jpg" alt="Bar chart comparing discharge efficiency of the three vortex drainage designs at low, medium and high inflow"></a>
+<div class="row row-1">
+<div class="cell"><a class="tile" href="aquaflux/device-variants.png"><img src="aquaflux/device-variants.png" alt="Four panels: normal vortex device, layered vortex device design 1, layered vortex device design 2, and parallel vortex device"></a></div>
 </div>
 
 <!-- ASK: the document says more videos can be taken from the Phase 1 + 2 presentation. Send any you want added and I will place them here. -->
@@ -166,14 +202,14 @@
 <div class="words">
 <p>The government authority certified AquaFlux for deployment at both sites this monsoon, with the adapted device and coupler ready for installation.</p>
 </div>
-<div class="pic">
-<a class="frame photo" href="aquaflux/govt-meeting.jpg"><img src="aquaflux/govt-meeting.jpg" alt="Seated at a table presenting the project to two officials"></a>
+<div class="pic" style="flex-basis:277px">
+<a class="frame photo" href="aquaflux/govt-meeting.jpg"><img src="aquaflux/govt-meeting.jpg" alt="Presenting the device across a table to the Joint Commissioner and a colleague"></a>
+<p class="caption">Presentation to the Joint Commissioner, Bengaluru North City Corporation.</p>
 </div>
 </div>
 
-<div class="row row-2">
-<a class="tile" href="aquaflux/print-parallel-grate.jpg"><img src="aquaflux/print-parallel-grate.jpg" alt="Side view of the layered vortex device with its drainage adaptor, for a parallel grate inlet"></a>
-<a class="tile" href="aquaflux/print-perpendicular-grate.jpg"><img src="aquaflux/print-perpendicular-grate.jpg" alt="Side view of the layered vortex device with its drainage adaptor, for a perpendicular grate inlet"></a>
+<div class="row-full">
+<a href="aquaflux/grate-adaptors.jpg" style="display:block;max-width:560px"><img src="aquaflux/grate-adaptors.jpg" alt="The layered vortex device with its drainage adaptor, shown in side view for a parallel grate inlet and for a perpendicular grate inlet" class="scanbig"></a>
 </div>
 
 <h3>5. Surface drainage algorithm</h3>
@@ -183,36 +219,44 @@
 <p>Using the study&rsquo;s data, I built an algorithm that recommends the optimal insert configuration for any road condition entered, so AquaFlux can adapt to cities worldwide: <a href="https://www.aquafluxvortex.com/">https://www.aquafluxvortex.com/</a></p>
 </div>
 <div class="pic">
-<a class="frame" href="aquaflux/slide-11.jpg"><img src="aquaflux/slide-11.jpg" alt="Slide showing government approval for deployment alongside screens of the AquaFluxVortex digital calculator"></a>
+<a class="frame" href="aquaflux/calculator-screens.jpg"><img src="aquaflux/calculator-screens.jpg" alt="The AquaFluxVortex calculator: an input panel for road and turbidity conditions, and the results screen beside it"></a>
 </div>
 </div>
-
 
 <h2>Impact</h2>
 
-<div class="side">
-<div class="words">
-<p>Utilise 120 kg of waste plastic per mile of road.</p>
-</div>
-<div class="pic">
-<a class="frame" href="aquaflux/key-features.png"><img src="aquaflux/key-features.png" alt="Panel listing global viability, zero-energy solution, high efficiency, cost effective and key engineering novelty"></a>
-</div>
-</div>
-
+<ol class="features">
+<li><strong>Global viability.</strong> Retrofits into any drain with an adjustable design &mdash; no changes to existing infrastructure required.</li>
+<li><strong>Zero-energy solution.</strong> Purely mechanical, no electricity needed, making it sustainable and scalable.</li>
+<li><strong>High efficiency.</strong> Delivers a 22&ndash;89% efficiency gain across conditions, with low maintenance.</li>
+<li><strong>Cost effective.</strong> Tackles a problem that costs cities $20 billion annually, with a solution that costs about $5 per unit.</li>
+<li><strong>Key engineering novelty.</strong> A re-engineered vortex design that accelerates discharge through geometry, unlike conventional flow-reducing systems &mdash; a first-of-its-kind drainage solution.</li>
+</ol>
 
 <div class="row row-3">
-<a class="tile" href="aquaflux/isef-booth.jpg"><img src="aquaflux/isef-booth.jpg" alt="Standing beside the AquaFlux project board in an exhibition booth"></a>
-<a class="tile" href="aquaflux/sjwp-iitmadras.jpg"><img src="aquaflux/sjwp-iitmadras.jpg" alt="Explaining the project to visitors at a poster session"></a>
-<a class="tile" href="aquaflux/isef-phoenix.jpg"><img src="aquaflux/isef-phoenix.jpg" alt="Standing with the Indian flag in front of the ISEF Phoenix 2026 screen"></a>
+<div class="cell" style="flex-grow:0.75"><a class="tile" href="aquaflux/isef-booth.jpg"><img src="aquaflux/isef-booth.jpg" alt="Standing beside the AquaFlux project board at the ISEF stall"></a>
+<p class="caption">ISEF stall.</p></div>
+<div class="cell" style="flex-grow:1.746"><a class="tile" href="aquaflux/sjwp-iitmadras.jpg"><img src="aquaflux/sjwp-iitmadras.jpg" alt="Explaining the project to visitors at the Stockholm Junior Water Prize stall"></a>
+<p class="caption">Stockholm Junior Water Prize stall.</p></div>
+<div class="cell" style="flex-grow:0.75"><a class="tile" href="aquaflux/isef-phoenix.jpg"><img src="aquaflux/isef-phoenix.jpg" alt="Standing with the Indian flag in front of the ISEF Phoenix 2026 screen"></a></div>
 </div>
 
 <h2>Videos &amp; resources</h2>
 
+<div class="side" style="max-width:580px">
+<div class="words">
+<p>A short clip of the printed device under test, with the flow meter on the inlet.</p>
+<p><a href="https://www.youtube.com/watch?v=aOORiEj6ZkA">Watch the project video &nearr;</a></p>
+<p><a href="https://www.aquafluxvortex.com/">The AquaFluxVortex calculator &nearr;</a></p>
+</div>
+<div class="pic tall">
 <iframe class="short" src="https://www.youtube.com/embed/aOORiEj6ZkA" title="Experimentation Aquaflux" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+</div>
+</div>
 
-<p><a href="https://www.youtube.com/watch?v=aOORiEj6ZkA">Watch project video &nearr;</a></p>
-<p><a href="https://www.aquafluxvortex.com/">https://www.aquafluxvortex.com/</a></p>
-<p><a href="https://budding-innovator.vercel.app/docs/urban-water-journal-vortex-drainage.pdf">https://budding-innovator.vercel.app/docs/urban-water-journal-vortex-drainage.pdf</a></p>
+<h3>Research paper</h3>
+<iframe class="paper" src="https://budding-innovator.vercel.app/docs/urban-water-journal-vortex-drainage.pdf#view=FitH" title="Urban Water Journal manuscript on the vortex drainage insert" loading="lazy"></iframe>
+<p><a href="https://budding-innovator.vercel.app/docs/urban-water-journal-vortex-drainage.pdf" target="_blank" rel="noopener">Read the full research paper &nearr;</a></p>
 
 <p><a href="#top">Back to top &uarr;</a> &middot; <a href="index.html">&larr; All projects</a></p>
 
