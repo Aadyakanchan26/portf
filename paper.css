@@ -35,8 +35,6 @@ p { margin: 0 0 1em; }
 ul { margin: 0 0 1em; padding-left: 1.4em; }
 li { margin-bottom: 0.3em; }
 
-.ask { font-style: italic; }
-
 /* The three panels from the mathematical-analysis slide, rebuilt as text. */
 .boxes { display: flex; gap: 22px; align-items: stretch; margin: 0 0 1.2em; }
 .box { flex: 1 1 0; min-width: 0; background: #fff; border: 1px solid #ddd9cc; padding: 14px 18px 16px; }
