@@ -42,6 +42,11 @@ li { margin-bottom: 0.3em; }
 .govpic img { display: block; width: 100%; height: 150px; object-fit: cover; }
 .govtext { flex: 1 1 0; min-width: 0; }
 
+/* One upright picture beside two wide ones stacked, both columns ending level. */
+.side .pic.trio { display: flex; flex-direction: row; gap: 12px; align-items: flex-start; }
+.pic.trio .tall { flex: 0 0 227px; }
+.pic.trio .pair { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 12px; }
+
 /* Collaborators shown as logos, the way the NIRI site does it. */
 .logos { display: flex; flex-wrap: wrap; align-items: center; gap: 26px 34px; max-width: 800px; margin: 0 0 1.4em; }
 .logos img { display: block; height: 46px; width: auto; }
@@ -157,6 +162,8 @@ img.scanbig { display: block; width: 100%; height: auto; margin: 0; }
   .side { display: block; }
   .side .pic { margin-top: 10px; }
   .side .pic.stack { grid-template-columns: 1fr; }
+  .side .pic.trio { display: block; }
+  .pic.trio .tall { margin-bottom: 12px; }
   /* A phone is narrower than the fixed frame, so let it shrink to fit. */
   .frame, .caption { width: 100%; max-width: 100%; }
   .frame, .side .frame { flex: none; }
