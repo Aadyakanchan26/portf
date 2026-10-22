@@ -35,6 +35,19 @@ p { margin: 0 0 1em; }
 ul { margin: 0 0 1em; padding-left: 1.4em; }
 li { margin-bottom: 0.3em; }
 
+/* Each government engagement shows its own photograph beside it. */
+.gov { max-width: 800px; margin: 0 0 1.2em; }
+.govrow { display: flex; gap: 18px; align-items: flex-start; margin: 0 0 16px; }
+.govpic { flex: 0 0 180px; display: block; }
+.govpic img { display: block; width: 100%; height: 150px; object-fit: cover; }
+.govtext { flex: 1 1 0; min-width: 0; }
+
+/* The live dashboard figures, carried over from the NIRI site as a plain grid. */
+.stats { display: flex; flex-wrap: wrap; gap: 14px; margin: 0 0 1.2em; max-width: 800px; }
+.stat { flex: 1 1 200px; background: #fff; border: 1px solid #ddd9cc; padding: 14px 16px 16px; }
+.fig { display: block; font-size: 1.6em; line-height: 1.1; }
+.lab { display: block; margin-top: 4px; font-size: 0.85em; color: #555; }
+
 /* The three panels from the mathematical-analysis slide, rebuilt as text. */
 .boxes { display: flex; gap: 22px; align-items: stretch; margin: 0 0 1.2em; }
 .box { flex: 1 1 0; min-width: 0; background: #fff; border: 1px solid #ddd9cc; padding: 14px 18px 16px; }
@@ -135,6 +148,9 @@ img.scanbig { display: block; width: 100%; height: auto; margin: 0; }
   /* A phone is narrower than the fixed frame, so let it shrink to fit. */
   .frame, .caption { width: 100%; max-width: 100%; }
   .frame, .side .frame { flex: none; }
+  .govrow { display: block; }
+  .govpic { width: 100%; margin-bottom: 8px; }
+  .govpic img { height: auto; }
   .boxes { display: block; }
   .box { margin-bottom: 14px; }
   .card-row { display: block; }
