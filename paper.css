@@ -69,7 +69,10 @@ li { margin-bottom: 0.3em; }
 
 /* Collaborators shown as logos, the way the NIRI site does it. */
 .logos { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 26px 34px; margin: 0 0 1.4em; }
-.logos img { display: block; height: 46px; width: auto; }
+.logos img { display: block; height: 46px; width: auto; max-width: 150px; object-fit: contain; }
+/* press logos sit smaller and in more rows than the collaborator strip */
+.logos.press { justify-content: flex-start; gap: 20px 28px; }
+.logos.press img { height: 34px; max-width: 130px; object-fit: contain; object-position: left center; }
 
 /* The live dashboard figures, carried over from the NIRI site as a plain grid. */
 .stats { display: flex; flex-wrap: wrap; gap: 14px; margin: 0 0 1.2em; }
