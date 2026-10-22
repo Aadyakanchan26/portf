@@ -52,33 +52,12 @@ li { margin-bottom: 0.3em; }
 .pic.trio .tall { flex: 0 0 227px; }
 .pic.trio .pair { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 12px; }
 
-/* Live dashboard, laid out like the NIRI panel but in this page's own plain style. */
-.livedot { font-size: 0.62em; font-weight: normal; letter-spacing: 0.1em; text-transform: uppercase; color: #555; border: 1px solid #ddd9cc; background: #fff; border-radius: 10px; padding: 2px 9px; vertical-align: middle; margin-left: 6px; }
-.panels { display: flex; flex-wrap: wrap; gap: 14px; margin: 0 0 1.2em; }
-.panel { flex: 1 1 380px; min-width: 0; background: #fff; border: 1px solid #ddd9cc; padding: 16px 18px 18px; }
-.plabel { margin: 0 0 0.5em; font-size: 0.8em; letter-spacing: 0.08em; text-transform: uppercase; color: #555; }
-.panel .plabel + .big, .panel .plabel + .pnote { margin-top: 0; }
-.big { margin: 0; font-size: 2.1em; line-height: 1.05; }
-.big2 { margin: 0 0 0.7em; font-size: 1.5em; line-height: 1.1; }
-.punit { margin: 0 0 0.3em; font-size: 0.85em; color: #555; }
-.pnote { margin: 0 0 0.3em; font-size: 0.85em; color: #555; }
-.panel .plabel:not(:first-child) { margin-top: 1.1em; padding-top: 0.9em; border-top: 1px solid #efece0; }
-.twoup, .threeup { display: flex; gap: 14px; }
-.twoup > div, .threeup > div { flex: 1 1 0; min-width: 0; }
-.fig2 { display: block; font-size: 1.3em; line-height: 1.1; }
-
 /* Collaborators shown as logos, the way the NIRI site does it. */
 .logos { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 26px 34px; margin: 0 0 1.4em; }
 .logos img { display: block; height: 46px; width: auto; max-width: 150px; object-fit: contain; }
 /* press logos sit smaller and in more rows than the collaborator strip */
 .logos.press { justify-content: flex-start; gap: 20px 28px; }
 .logos.press img { height: 34px; max-width: 130px; object-fit: contain; object-position: left center; }
-
-/* The live dashboard figures, carried over from the NIRI site as a plain grid. */
-.stats { display: flex; flex-wrap: wrap; gap: 14px; margin: 0 0 1.2em; }
-.stat { flex: 1 1 200px; background: #fff; border: 1px solid #ddd9cc; padding: 14px 16px 16px; }
-.fig { display: block; font-size: 1.6em; line-height: 1.1; }
-.lab { display: block; margin-top: 4px; font-size: 0.85em; color: #555; }
 
 /* The three panels from the mathematical-analysis slide, rebuilt as text. */
 .boxes { display: flex; gap: 22px; align-items: stretch; margin: 0 0 1.2em; }

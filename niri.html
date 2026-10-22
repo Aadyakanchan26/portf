@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>NIRI &mdash; Aadya Kanchan</title>
-<link rel="stylesheet" href="paper.css?v=20261022h">
+<link rel="stylesheet" href="paper.css?v=20261022i">
 </head>
 <body>
 <div class="content">
@@ -136,43 +136,10 @@
 
 <h2>Impact</h2>
 
-<h3>Live impact dashboard <span class="livedot">Live</span></h3>
+<h3>Live impact dashboard</h3>
 
-<p>Real-time impact of water conservation, read from the NIRI system.</p>
-
-<div class="stats" id="dash">
-<div class="stat"><span class="fig" data-fig="devices">25</span><span class="lab">devices active</span></div>
-<div class="stat"><span class="fig">30%</span><span class="lab">reduction</span></div>
-<div class="stat"><span class="fig" data-fig="months">18</span><span class="lab">months active</span></div>
-<div class="stat"><span class="fig" data-fig="bill">$755.54</span><span class="lab">water bill saved, at $0.006 per litre</span></div>
-</div>
-
-<div class="panels">
-<div class="panel">
-<p class="plabel">Total water saved</p>
-<p class="big"><span data-fig="litres">1,25,923.10</span></p>
-<p class="punit">litres</p>
-<p class="pnote">Live total water saved across all devices.</p>
-<p class="plabel">That&rsquo;s enough water for&hellip;</p>
-<div class="twoup">
-<div><span class="fig2" data-fig="people">932</span><span class="lab">people (daily water)<br>135 litres per person a day</span></div>
-<div><span class="fig2" data-fig="houses">466</span><span class="lab">houses (daily supply)<br>270 litres per house a day</span></div>
-</div>
-</div>
-
-<div class="panel">
-<p class="plabel">Key impact summary</p>
-<p class="pnote">Carbon emissions prevented</p>
-<p class="big2"><span data-fig="co2">43.32</span> <span class="punit">kg CO&#8322;</span></p>
-<p class="pnote">Energy conserved</p>
-<p class="big2"><span data-fig="kwh">75.55</span> <span class="punit">kWh</span></p>
-<p class="plabel">Today&rsquo;s savings</p>
-<div class="threeup">
-<div><span class="fig2" data-fig="todayL">1500</span><span class="lab">litres</span></div>
-<div><span class="fig2" data-fig="todayCo2">0.52</span><span class="lab">kg CO&#8322;</span></div>
-<div><span class="fig2" data-fig="todayKwh">0.90</span><span class="lab">kWh</span></div>
-</div>
-</div>
+<div class="row row-2">
+<div class="cell" style="flex-grow:1.736"><a class="tile" href="https://www.niriwatersolutions.com/"><img src="niri/live-dashboard.png" alt="NIRI live impact dashboard: 25 devices active, 30% reduction, 18 months active, $755.63 saved on water bills, 1,25,937.53 litres of water saved, enough for 932 people or 466 houses a day, 43.32 kg of CO2 prevented and 75.56 kWh conserved"></a></div>
 </div>
 
 <p><a href="https://www.niriwatersolutions.com/">See the live dashboard on the NIRI site &nearr;</a></p>
@@ -289,140 +256,5 @@ International Journal of High School Research, 2026, Vol. 8 Issue 12, p. 70&ndas
 
 </div>
 
-<script>
-/* Live impact dashboard.
-   This is the NIRI site's own model, ported from its LiveImpactDashboard
-   component so the two always agree: each deployment saves 60 litres a day from
-   the day it went in, today's portion follows the same hour-by-hour profile,
-   and every other figure derives from the running total with NIRI's constants. */
-(function () {
-  var IST_OFFSET_MS = 5.5 * 3600000;
-  var DAY_MS = 86400000;
-
-  function istMidnight(d) { return Date.parse(d + 'T00:00:00+05:30'); }
-
-  var DEVICES = [
-    { date: istMidnight('2025-04-01'), litresPerDay: 60, units: 1 },
-    { date: istMidnight('2025-07-01'), litresPerDay: 60, units: 1 },
-    { date: istMidnight('2025-11-01'), litresPerDay: 60, units: 1 },
-    { date: istMidnight('2026-01-15'), litresPerDay: 60, units: 1 },
-    { date: istMidnight('2026-01-15'), litresPerDay: 60, units: 1 },
-    { date: istMidnight('2026-10-15'), litresPerDay: 60, units: 1 },
-    { date: istMidnight('2026-10-15'), litresPerDay: 60, units: 1 },
-    { date: istMidnight('2026-10-15'), litresPerDay: 60, units: 1 },
-    { date: istMidnight('2026-10-15'), litresPerDay: 60, units: 1 },
-    { date: istMidnight('2026-10-15'), litresPerDay: 60, units: 1 },
-    { date: istMidnight('2026-10-15'), litresPerDay: 60, units: 1 },
-    { date: istMidnight('2026-10-17'), litresPerDay: 60, units: 14 }
-  ];
-
-  var CARBON_FACTOR = 0.000344;
-  var ENERGY_FACTOR = 0.0006;
-  var WATER_BILL_RATE = 0.006;
-  var LITRES_PER_PERSON_PER_DAY = 135;
-  var LITRES_PER_HOUSE_PER_DAY = 270;
-
-  var PERIODS = [
-    { name: 'night-before-dawn', start: 0, end: 6, share: 0.01 * (6 / 8) },
-    { name: 'morning', start: 6, end: 11, share: 0.49 },
-    { name: 'afternoon', start: 11, end: 18, share: 0.2 },
-    { name: 'evening', start: 18, end: 22, share: 0.3 },
-    { name: 'late-night', start: 22, end: 24, share: 0.01 * (2 / 8) }
-  ];
-
-  var IST_PARTS = new Intl.DateTimeFormat('en-CA', {
-    timeZone: 'Asia/Kolkata', year: 'numeric', month: '2-digit', day: '2-digit',
-    hour: '2-digit', minute: '2-digit', hourCycle: 'h23'
-  });
-
-  function istNow(date) {
-    var v = {};
-    IST_PARTS.formatToParts(date).forEach(function (p) { v[p.type] = p.value; });
-    return { year: +v.year, month: +v.month, day: +v.day, hour: +v.hour, minute: +v.minute };
-  }
-
-  function hashSeed(value) {
-    var hash = 2166136261;
-    for (var i = 0; i < value.length; i += 1) {
-      hash ^= value.charCodeAt(i);
-      hash = Math.imul(hash, 16777619);
-    }
-    return hash >>> 0;
-  }
-
-  function waveIntegral(minutes, period, phase) {
-    var w = (2 * Math.PI) / period;
-    return (Math.cos(phase) - Math.cos(phase + w * minutes)) / w;
-  }
-
-  function variedProgress(elapsed, duration, seed) {
-    var p1 = ((seed % 10000) / 10000) * Math.PI * 2;
-    var p2 = (((seed >>> 8) % 10000) / 10000) * Math.PI * 2;
-    var a1 = 0.24, a2 = 0.12;
-    var num = elapsed + a1 * waveIntegral(elapsed, 37, p1) + a2 * waveIntegral(elapsed, 13, p2);
-    var den = duration + a1 * waveIntegral(duration, 37, p1) + a2 * waveIntegral(duration, 13, p2);
-    return Math.min(1, Math.max(0, num / den));
-  }
-
-  function dailyProfile(savedMinutes, dateKey, litresPerDay) {
-    var total = 0;
-    for (var i = 0; i < PERIODS.length; i += 1) {
-      var p = PERIODS[i];
-      var startMin = p.start * 60, endMin = p.end * 60;
-      if (savedMinutes <= startMin) continue;
-      var duration = endMin - startMin;
-      var elapsed = Math.min(savedMinutes, endMin) - startMin;
-      total += litresPerDay * p.share * variedProgress(elapsed, duration, hashSeed(dateKey + '-' + p.name));
-    }
-    return total;
-  }
-
-  function pad(n) { return String(n).padStart(2, '0'); }
-
-  function render() {
-    var now = Date.now();
-    var ist = istNow(new Date(now));
-    var dayKey = ist.year + '-' + pad(ist.month) + '-' + pad(ist.day);
-    var dayStart = Date.UTC(ist.year, ist.month - 1, ist.day) - IST_OFFSET_MS;
-    var savedMinutes = ist.hour * 60 + ist.minute + (now % 60000) / 60000;
-
-    var litres = 0, devices = 0;
-    for (var i = 0; i < DEVICES.length; i += 1) {
-      var d = DEVICES[i];
-      if (now < d.date) continue;
-      var completeDays = Math.floor((dayStart - d.date) / DAY_MS);
-      litres += (completeDays * d.litresPerDay + dailyProfile(savedMinutes, dayKey, d.litresPerDay)) * d.units;
-      devices += d.units;
-    }
-
-    var todayWater = devices * 60;
-    var months = Math.floor((now - DEVICES[0].date) / (DAY_MS * 30.44));
-    var num = function (v, dp) {
-      return v.toLocaleString('en-IN', { minimumFractionDigits: dp, maximumFractionDigits: dp });
-    };
-
-    var out = {
-      devices: String(devices),
-      litres: num(litres, 2),
-      bill: '$' + num(litres * WATER_BILL_RATE, 2),
-      co2: num(litres * CARBON_FACTOR, 2),
-      kwh: num(litres * ENERGY_FACTOR, 2),
-      people: Math.floor(litres / LITRES_PER_PERSON_PER_DAY).toLocaleString('en-IN'),
-      houses: Math.floor(litres / LITRES_PER_HOUSE_PER_DAY).toLocaleString('en-IN'),
-      months: String(months),
-      todayL: String(todayWater),
-      todayCo2: (todayWater * CARBON_FACTOR).toFixed(2),
-      todayKwh: (todayWater * ENERGY_FACTOR).toFixed(2)
-    };
-    for (var key in out) {
-      var el = document.querySelector('[data-fig="' + key + '"]');
-      if (el) el.textContent = out[key];
-    }
-  }
-
-  render();
-  setInterval(render, 5000);
-}());
-</script>
 </body>
 </html>
