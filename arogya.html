@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Arogya Dx &mdash; Aadya Kanchan</title>
-<link rel="stylesheet" href="paper.css?v=20261022a">
+<link rel="stylesheet" href="paper.css?v=20261022b">
 </head>
 <body>
 <div class="content">
@@ -38,16 +38,10 @@
 </div>
 <div class="pic">
 <a class="frame photo" href="arogya/device-topdown.png"><img src="arogya/device-topdown.png" alt="Top view of the device: a black chamber, a blue sample stage and a sensor board with a lit LED"></a>
-</div>
-</div>
-<div class="side">
-<div class="words">
-<p><strong>Normalisation.</strong> Each channel is taken as a share of the three: <em>R</em><sub>norm</sub> = <em>R</em>/(<em>R</em>+<em>G</em>+<em>B</em>) &times; 100, and likewise for <em>G</em><sub>norm</sub> and <em>B</em><sub>norm</sub>. The change between inlet and outlet is &Delta;(%) = (<em>I</em><sub>high</sub> &minus; <em>I</em><sub>low</sub>) / <em>I</em><sub>low</sub> &times; 100.</p>
-</div>
-<div class="pic">
 <a class="frame" href="arogya/circuit-only.png"><img src="arogya/circuit-only.png" alt="The experimental circuit: a 12 V supply and buck module, relay, two push buttons, a motor, the ESP32, the AS7265x spectral triad and the TCS34725 RGB sensor" class="scanbig"></a>
 </div>
 </div>
+
 
 <h3>Current solutions</h3>
 
@@ -94,13 +88,13 @@
 <a class="frame" href="arogya/wiring-desk-2.jpg"><img src="arogya/wiring-desk-2.jpg" alt="Close view of the same desk: a breakout board being soldered, the circuit diagram on the monitor"></a>
 </div>
 </div>
-<div class="row row-2">
+<div class="row row-3" style="max-width:620px">
 <div class="cell" style="flex-grow:0.824"><a class="tile" href="arogya/build-6.jpg"><img src="arogya/build-6.jpg" alt="Assembling the black chamber on a red work surface, wearing blue gloves"></a></div>
 <div class="cell" style="flex-grow:1.043"><a class="tile" href="arogya/build-3.jpg"><img src="arogya/build-3.jpg" alt="Several PDMS microfluidic chips with coloured channels laid out on a surface"></a></div>
-</div>
-<div class="row row-2" style="max-width:420px">
 <div class="cell" style="flex-grow:0.893"><a class="tile" href="arogya/build-5.jpg"><img src="arogya/build-5.jpg" alt="Sample preparation: a beaker of yellow solution, pipette and chips on the bench"></a></div>
 </div>
+<h4>Working videos</h4>
+
 <div class="row row-2" style="max-width:443px">
 <a class="tile" style="flex-grow:0.562" href="videos/arogya-optical-setup.mp4"><video controls preload="metadata"><source src="videos/arogya-optical-setup.mp4" type="video/mp4">Your browser does not support this video.</video></a>
 <a class="tile" style="flex-grow:0.566" href="videos/arogya-sensor-test.mp4"><video controls preload="metadata"><source src="videos/arogya-sensor-test.mp4" type="video/mp4">Your browser does not support this video.</video></a>
@@ -120,32 +114,28 @@
 <li>Plasma samples followed the same patterns, confirming the system works on real-world samples.</li>
 </ol>
 </div>
-<div class="pic">
-<a class="frame" href="arogya/spectral-signature.jpg"><img src="arogya/spectral-signature.jpg" alt="Spectral signature chart from 410 to 740 nm for different lipid concentrations, with maximum discrimination marked at 645, 535 and 410 nm"></a>
-</div>
-</div>
-<div class="row-full">
-<a href="arogya/mean-spectral-response.jpg" style="display:block;max-width:700px"><img src="arogya/mean-spectral-response.jpg" alt="Line chart of mean spectral response by concentration, with six series from 0 to 50 percent across 410 to 940 nm" class="scanbig"></a>
 </div>
 <div class="row row-2">
+<div class="cell" style="flex-grow:1.984"><a class="tile" href="arogya/mean-spectral-response.jpg"><img src="arogya/mean-spectral-response.jpg" alt="Line chart of mean spectral response by concentration, with six series from 0 to 50 percent across 410 to 940 nm"></a></div>
 <div class="cell" style="flex-grow:1.255"><a class="tile" href="arogya/plasma-comparison.png"><img src="arogya/plasma-comparison.png" alt="Line chart comparing the spectral signatures of plasma sample 1 and plasma sample 2 from 410 to 860 nm"></a></div>
-<div class="cell" style="flex-grow:1.702"><a class="tile" href="arogya/plasma-testing.png"><img src="arogya/plasma-testing.png" alt="Spectral signature analysis: baseline, plasma sample 1 and plasma sample 2 intensity from 410 to 860 nm"></a></div>
 </div>
 
 <h3>IEEE ICETEMS 2026 &mdash; best paper award</h3>
 
 <p>Presented at the 3rd International Conference on Emerging Trends in Engineering and Medical Sciences as &ldquo;Microfluidic Device for Rapid Detection of Familial Hyperlipidemia Using Optical Turbidity Sensing&rdquo;.</p>
 
-<div class="row row-2" style="max-width:460px">
+<div class="row row-2" style="max-width:800px">
 <div class="cell" style="flex-grow:1.78"><a class="tile" href="arogya/icetems-podium.jpg"><img src="arogya/icetems-podium.jpg" alt="Presenting the microfluidic device paper at the IEEE ICETEMS 2026 conference"></a>
 <p class="caption">Presentation.</p></div>
+<div class="cell" style="flex-grow:1.405"><a class="tile" href="arogya/icetems-certificate.jpg"><img src="arogya/icetems-certificate.jpg" alt="Certificate of Excellence awarded to Aadya Kanchan for the best paper at ICETEMS 2026"></a>
+<p class="caption">Certificate.</p></div>
 </div>
 
 <h2>Videos &amp; resources</h2>
 
 <h3>Research paper</h3>
 <p>&ldquo;Microfluidic Device for Rapid Detection of Familial Hyperlipidemia Using Optical Turbidity Sensing&rdquo;<br>
-IEEE ICETEMS 2026 &mdash; 3rd International Conference on Emerging Trends in Engineering and Medical Sciences.</p>
+Published in IEEE Xplore (Scopus indexed).</p>
 <p><a href="https://budding-innovator.vercel.app/docs/ieee-icetems-microfluidic-hyperlipidemia.pdf" target="_blank" rel="noopener">You can read the full paper here &nearr;</a></p>
 
 <p><a href="index.html">&larr; Back to all projects</a></p>
