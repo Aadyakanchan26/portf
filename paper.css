@@ -42,6 +42,11 @@ li { margin-bottom: 0.3em; }
 .govpic img { display: block; width: 100%; height: 150px; object-fit: cover; }
 .govtext { flex: 1 1 0; min-width: 0; }
 
+/* Two pictures side by side inside a picture column, sized so they sit level. */
+.pairx { display: flex; gap: 12px; align-items: flex-start; }
+.pairx .s { flex: 1 1 0; min-width: 0; display: block; }
+.pairx .frame { width: 100%; }
+
 /* One upright picture beside two wide ones stacked, both columns ending level. */
 .side .pic.trio { display: flex; flex-direction: row; gap: 12px; align-items: flex-start; }
 .pic.trio .tall { flex: 0 0 227px; }
