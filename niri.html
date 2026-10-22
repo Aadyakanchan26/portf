@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>NIRI &mdash; Aadya Kanchan</title>
-<link rel="stylesheet" href="paper.css?v=20261022e">
+<link rel="stylesheet" href="paper.css?v=20261022f">
 </head>
 <body>
 <div class="content">
@@ -136,18 +136,43 @@
 
 <h2>Impact</h2>
 
-<h3>Live impact dashboard</h3>
+<h3>Live impact dashboard <span class="livedot">Live</span></h3>
+
+<p>Real-time impact of water conservation, read from the NIRI system.</p>
 
 <div class="stats" id="dash">
-<div class="stat"><span class="fig" data-fig="devices">25</span><span class="lab">devices active</span></div>
-<div class="stat"><span class="fig">30%</span><span class="lab">reduction in consumption</span></div>
+<div class="stat"><span class="fig">25</span><span class="lab">devices active</span></div>
+<div class="stat"><span class="fig">30%</span><span class="lab">reduction</span></div>
 <div class="stat"><span class="fig" data-fig="months">18</span><span class="lab">months active</span></div>
-<div class="stat"><span class="fig" data-fig="litres">1,25,382</span><span class="lab">litres of water saved</span></div>
-<div class="stat"><span class="fig" data-fig="co2">43.14</span><span class="lab">kg of CO&#8322; prevented</span></div>
-<div class="stat"><span class="fig" data-fig="kwh">75.23</span><span class="lab">kWh of energy conserved</span></div>
-<div class="stat"><span class="fig" data-fig="bill">$752</span><span class="lab">off water bills, at $0.006 a litre</span></div>
-<div class="stat"><span class="fig" data-fig="people">928</span><span class="lab">people&rsquo;s daily water, at 135 litres each</span></div>
-<div class="stat"><span class="fig" data-fig="houses">464</span><span class="lab">houses&rsquo; daily supply, at 270 litres each</span></div>
+<div class="stat"><span class="fig" data-fig="bill">$755.54</span><span class="lab">water bill saved, at $0.006 per litre</span></div>
+</div>
+
+<div class="panels">
+<div class="panel">
+<p class="plabel">Total water saved</p>
+<p class="big"><span data-fig="litres">1,25,923.10</span></p>
+<p class="punit">litres</p>
+<p class="pnote">Live total water saved across all devices.</p>
+<p class="plabel">That&rsquo;s enough water for&hellip;</p>
+<div class="twoup">
+<div><span class="fig2" data-fig="people">932</span><span class="lab">people (daily water)<br>135 litres per person a day</span></div>
+<div><span class="fig2" data-fig="houses">466</span><span class="lab">houses (daily supply)<br>270 litres per house a day</span></div>
+</div>
+</div>
+
+<div class="panel">
+<p class="plabel">Key impact summary</p>
+<p class="pnote">Carbon emissions prevented</p>
+<p class="big2"><span data-fig="co2">43.32</span> <span class="punit">kg CO&#8322;</span></p>
+<p class="pnote">Energy conserved</p>
+<p class="big2"><span data-fig="kwh">75.55</span> <span class="punit">kWh</span></p>
+<p class="plabel">Today&rsquo;s savings</p>
+<div class="threeup">
+<div><span class="fig2" data-fig="todayL">1500</span><span class="lab">litres</span></div>
+<div><span class="fig2" data-fig="todayCo2">0.52</span><span class="lab">kg CO&#8322;</span></div>
+<div><span class="fig2" data-fig="todayKwh">0.90</span><span class="lab">kWh</span></div>
+</div>
+</div>
 </div>
 
 <p><a href="https://www.niriwatersolutions.com/">See the live dashboard on the NIRI site &nearr;</a></p>
@@ -214,57 +239,46 @@ International Journal of High School Research, 2026, Vol. 8 Issue 12, p. 70&ndas
 </div>
 
 <script>
-/* Live impact dashboard.
-   Same model the NIRI site uses: each deployment saves 60 litres a day from the
-   day it went in. Deployment dates and rate are taken from niriwatersolutions.com.
-   CALIB is the gap between this sum and the figure that site published at
-   CALIB_AT, so the two stay in step. */
+/* Live impact dashboard, mirroring the NIRI site.
+   Their own figures give the model: the fleet saves 1500 litres a day, and
+   every other number derives from the running total.
+   ANCHOR is a reading taken from niriwatersolutions.com at ANCHOR_AT. */
 (function () {
-  var IST = 5.5 * 3600000;
-  var DEPLOYMENTS = [
-    ['2025-04-01', 1], ['2025-07-01', 1], ['2025-11-01', 1],
-    ['2026-01-15', 2], ['2026-10-15', 6], ['2026-10-17', 1]
-  ];
-  var LITRES_PER_DAY = 60;
+  var ANCHOR_AT = Date.parse('2026-10-22T21:55:00+05:30');
+  var ANCHOR = 125923.10;
+  var LITRES_PER_DAY = 1500;
   var KWH_PER_LITRE = 0.0006;
   var KG_CO2_PER_KWH = 0.5734;
   var USD_PER_LITRE = 0.006;
   var LITRES_PER_PERSON_DAY = 135;
   var LITRES_PER_HOUSE_DAY = 270;
-  var CALIB_AT = Date.parse('2026-10-22T19:00:00+05:30');
-  var CALIB = 4228.04;
+  var FIRST_DEPLOYMENT = Date.parse('2025-04-01T00:00:00+05:30');
 
-  function startOf(d) { return Date.parse(d + 'T00:00:00+05:30'); }
-
-  function litresAt(now) {
-    var total = CALIB;
-    for (var i = 0; i < DEPLOYMENTS.length; i++) {
-      var days = (now - startOf(DEPLOYMENTS[i][0])) / 86400000;
-      if (days > 0) total += LITRES_PER_DAY * days * DEPLOYMENTS[i][1];
-    }
-    return total;
-  }
-
-  function indian(n) {
-    var s = Math.floor(n).toString();
-    if (s.length <= 3) return s;
-    var last = s.slice(-3), rest = s.slice(0, -3);
-    return rest.replace(/\B(?=(\d{2})+(?!\d))/g, ',') + ',' + last;
+  function indian(n, dp) {
+    var neg = n < 0; n = Math.abs(n);
+    var fixed = dp ? n.toFixed(dp) : String(Math.floor(n));
+    var parts = fixed.split('.');
+    var s = parts[0], last = s.slice(-3), rest = s.slice(0, -3);
+    var out = rest ? rest.replace(/\B(?=(\d{2})+(?!\d))/g, ',') + ',' + last : last;
+    return (neg ? '-' : '') + out + (parts[1] ? '.' + parts[1] : '');
   }
 
   function render() {
     var now = Date.now();
-    var litres = litresAt(now);
+    var litres = ANCHOR + LITRES_PER_DAY * (now - ANCHOR_AT) / 86400000;
     var kwh = litres * KWH_PER_LITRE;
-    var months = Math.floor((now - startOf('2025-04-01')) / 86400000 / 30.4375);
+    var todayKwh = LITRES_PER_DAY * KWH_PER_LITRE;
     var out = {
-      litres: indian(litres),
+      litres: indian(litres, 2),
+      bill: '$' + indian(litres * USD_PER_LITRE, 2),
       co2: (kwh * KG_CO2_PER_KWH).toFixed(2),
       kwh: kwh.toFixed(2),
-      months: String(months),
-      bill: '$' + Math.round(litres * USD_PER_LITRE),
       people: indian(litres / LITRES_PER_PERSON_DAY),
-      houses: indian(litres / LITRES_PER_HOUSE_DAY)
+      houses: indian(litres / LITRES_PER_HOUSE_DAY),
+      months: String(Math.floor((now - FIRST_DEPLOYMENT) / 86400000 / 30.4375)),
+      todayL: String(LITRES_PER_DAY),
+      todayCo2: (todayKwh * KG_CO2_PER_KWH).toFixed(2),
+      todayKwh: todayKwh.toFixed(2)
     };
     for (var key in out) {
       var el = document.querySelector('[data-fig="' + key + '"]');
