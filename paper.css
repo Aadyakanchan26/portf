@@ -48,11 +48,11 @@ li { margin-bottom: 0.3em; }
 .pic.trio .pair { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 12px; }
 
 /* Collaborators shown as logos, the way the NIRI site does it. */
-.logos { display: flex; flex-wrap: wrap; align-items: center; gap: 26px 34px; max-width: 800px; margin: 0 0 1.4em; }
+.logos { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 26px 34px; margin: 0 0 1.4em; }
 .logos img { display: block; height: 46px; width: auto; }
 
 /* The live dashboard figures, carried over from the NIRI site as a plain grid. */
-.stats { display: flex; flex-wrap: wrap; gap: 14px; margin: 0 0 1.2em; max-width: 800px; }
+.stats { display: flex; flex-wrap: wrap; gap: 14px; margin: 0 0 1.2em; }
 .stat { flex: 1 1 200px; background: #fff; border: 1px solid #ddd9cc; padding: 14px 16px 16px; }
 .fig { display: block; font-size: 1.6em; line-height: 1.1; }
 .lab { display: block; margin-top: 4px; font-size: 0.85em; color: #555; }
@@ -73,7 +73,7 @@ li { margin-bottom: 0.3em; }
 /* Pictures sit in rows of equal boxes, two to a row, or three to close an
    odd group, so no picture is ever left alone and every row lines up.
    Each picture shows whole inside its box. */
-.row { display: flex; flex-wrap: wrap; gap: 14px; margin: 0 0 14px; align-items: flex-start; max-width: 800px; }
+.row { display: flex; flex-wrap: wrap; gap: 14px; margin: 0 0 14px; align-items: flex-start; }
 .row .cell { flex: 1 1 0; min-width: 0; }
 .row .cell .tile { width: 100%; }
 .row .tile { flex: 1 1 0; min-width: 0; display: block; }
