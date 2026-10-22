@@ -141,7 +141,7 @@
 <p>Real-time impact of water conservation, read from the NIRI system.</p>
 
 <div class="stats" id="dash">
-<div class="stat"><span class="fig">25</span><span class="lab">devices active</span></div>
+<div class="stat"><span class="fig" data-fig="devices">25</span><span class="lab">devices active</span></div>
 <div class="stat"><span class="fig">30%</span><span class="lab">reduction</span></div>
 <div class="stat"><span class="fig" data-fig="months">18</span><span class="lab">months active</span></div>
 <div class="stat"><span class="fig" data-fig="bill">$755.54</span><span class="lab">water bill saved, at $0.006 per litre</span></div>
@@ -239,46 +239,129 @@ International Journal of High School Research, 2026, Vol. 8 Issue 12, p. 70&ndas
 </div>
 
 <script>
-/* Live impact dashboard, mirroring the NIRI site.
-   Their own figures give the model: the fleet saves 1500 litres a day, and
-   every other number derives from the running total.
-   ANCHOR is a reading taken from niriwatersolutions.com at ANCHOR_AT. */
+/* Live impact dashboard.
+   This is the NIRI site's own model, ported from its LiveImpactDashboard
+   component so the two always agree: each deployment saves 60 litres a day from
+   the day it went in, today's portion follows the same hour-by-hour profile,
+   and every other figure derives from the running total with NIRI's constants. */
 (function () {
-  var ANCHOR_AT = Date.parse('2026-10-22T21:55:00+05:30');
-  var ANCHOR = 125923.10;
-  var LITRES_PER_DAY = 1500;
-  var KWH_PER_LITRE = 0.0006;
-  var KG_CO2_PER_KWH = 0.5734;
-  var USD_PER_LITRE = 0.006;
-  var LITRES_PER_PERSON_DAY = 135;
-  var LITRES_PER_HOUSE_DAY = 270;
-  var FIRST_DEPLOYMENT = Date.parse('2025-04-01T00:00:00+05:30');
+  var IST_OFFSET_MS = 5.5 * 3600000;
+  var DAY_MS = 86400000;
 
-  function indian(n, dp) {
-    var neg = n < 0; n = Math.abs(n);
-    var fixed = dp ? n.toFixed(dp) : String(Math.floor(n));
-    var parts = fixed.split('.');
-    var s = parts[0], last = s.slice(-3), rest = s.slice(0, -3);
-    var out = rest ? rest.replace(/\B(?=(\d{2})+(?!\d))/g, ',') + ',' + last : last;
-    return (neg ? '-' : '') + out + (parts[1] ? '.' + parts[1] : '');
+  function istMidnight(d) { return Date.parse(d + 'T00:00:00+05:30'); }
+
+  var DEVICES = [
+    { date: istMidnight('2025-04-01'), litresPerDay: 60, units: 1 },
+    { date: istMidnight('2025-07-01'), litresPerDay: 60, units: 1 },
+    { date: istMidnight('2025-11-01'), litresPerDay: 60, units: 1 },
+    { date: istMidnight('2026-01-15'), litresPerDay: 60, units: 1 },
+    { date: istMidnight('2026-01-15'), litresPerDay: 60, units: 1 },
+    { date: istMidnight('2026-10-15'), litresPerDay: 60, units: 1 },
+    { date: istMidnight('2026-10-15'), litresPerDay: 60, units: 1 },
+    { date: istMidnight('2026-10-15'), litresPerDay: 60, units: 1 },
+    { date: istMidnight('2026-10-15'), litresPerDay: 60, units: 1 },
+    { date: istMidnight('2026-10-15'), litresPerDay: 60, units: 1 },
+    { date: istMidnight('2026-10-15'), litresPerDay: 60, units: 1 },
+    { date: istMidnight('2026-10-17'), litresPerDay: 60, units: 14 }
+  ];
+
+  var CARBON_FACTOR = 0.000344;
+  var ENERGY_FACTOR = 0.0006;
+  var WATER_BILL_RATE = 0.006;
+  var LITRES_PER_PERSON_PER_DAY = 135;
+  var LITRES_PER_HOUSE_PER_DAY = 270;
+
+  var PERIODS = [
+    { name: 'night-before-dawn', start: 0, end: 6, share: 0.01 * (6 / 8) },
+    { name: 'morning', start: 6, end: 11, share: 0.49 },
+    { name: 'afternoon', start: 11, end: 18, share: 0.2 },
+    { name: 'evening', start: 18, end: 22, share: 0.3 },
+    { name: 'late-night', start: 22, end: 24, share: 0.01 * (2 / 8) }
+  ];
+
+  var IST_PARTS = new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'Asia/Kolkata', year: 'numeric', month: '2-digit', day: '2-digit',
+    hour: '2-digit', minute: '2-digit', hourCycle: 'h23'
+  });
+
+  function istNow(date) {
+    var v = {};
+    IST_PARTS.formatToParts(date).forEach(function (p) { v[p.type] = p.value; });
+    return { year: +v.year, month: +v.month, day: +v.day, hour: +v.hour, minute: +v.minute };
   }
+
+  function hashSeed(value) {
+    var hash = 2166136261;
+    for (var i = 0; i < value.length; i += 1) {
+      hash ^= value.charCodeAt(i);
+      hash = Math.imul(hash, 16777619);
+    }
+    return hash >>> 0;
+  }
+
+  function waveIntegral(minutes, period, phase) {
+    var w = (2 * Math.PI) / period;
+    return (Math.cos(phase) - Math.cos(phase + w * minutes)) / w;
+  }
+
+  function variedProgress(elapsed, duration, seed) {
+    var p1 = ((seed % 10000) / 10000) * Math.PI * 2;
+    var p2 = (((seed >>> 8) % 10000) / 10000) * Math.PI * 2;
+    var a1 = 0.24, a2 = 0.12;
+    var num = elapsed + a1 * waveIntegral(elapsed, 37, p1) + a2 * waveIntegral(elapsed, 13, p2);
+    var den = duration + a1 * waveIntegral(duration, 37, p1) + a2 * waveIntegral(duration, 13, p2);
+    return Math.min(1, Math.max(0, num / den));
+  }
+
+  function dailyProfile(savedMinutes, dateKey, litresPerDay) {
+    var total = 0;
+    for (var i = 0; i < PERIODS.length; i += 1) {
+      var p = PERIODS[i];
+      var startMin = p.start * 60, endMin = p.end * 60;
+      if (savedMinutes <= startMin) continue;
+      var duration = endMin - startMin;
+      var elapsed = Math.min(savedMinutes, endMin) - startMin;
+      total += litresPerDay * p.share * variedProgress(elapsed, duration, hashSeed(dateKey + '-' + p.name));
+    }
+    return total;
+  }
+
+  function pad(n) { return String(n).padStart(2, '0'); }
 
   function render() {
     var now = Date.now();
-    var litres = ANCHOR + LITRES_PER_DAY * (now - ANCHOR_AT) / 86400000;
-    var kwh = litres * KWH_PER_LITRE;
-    var todayKwh = LITRES_PER_DAY * KWH_PER_LITRE;
+    var ist = istNow(new Date(now));
+    var dayKey = ist.year + '-' + pad(ist.month) + '-' + pad(ist.day);
+    var dayStart = Date.UTC(ist.year, ist.month - 1, ist.day) - IST_OFFSET_MS;
+    var savedMinutes = ist.hour * 60 + ist.minute + (now % 60000) / 60000;
+
+    var litres = 0, devices = 0;
+    for (var i = 0; i < DEVICES.length; i += 1) {
+      var d = DEVICES[i];
+      if (now < d.date) continue;
+      var completeDays = Math.floor((dayStart - d.date) / DAY_MS);
+      litres += (completeDays * d.litresPerDay + dailyProfile(savedMinutes, dayKey, d.litresPerDay)) * d.units;
+      devices += d.units;
+    }
+
+    var todayWater = devices * 60;
+    var months = Math.floor((now - DEVICES[0].date) / (DAY_MS * 30.44));
+    var num = function (v, dp) {
+      return v.toLocaleString('en-IN', { minimumFractionDigits: dp, maximumFractionDigits: dp });
+    };
+
     var out = {
-      litres: indian(litres, 2),
-      bill: '$' + indian(litres * USD_PER_LITRE, 2),
-      co2: (kwh * KG_CO2_PER_KWH).toFixed(2),
-      kwh: kwh.toFixed(2),
-      people: indian(litres / LITRES_PER_PERSON_DAY),
-      houses: indian(litres / LITRES_PER_HOUSE_DAY),
-      months: String(Math.floor((now - FIRST_DEPLOYMENT) / 86400000 / 30.4375)),
-      todayL: String(LITRES_PER_DAY),
-      todayCo2: (todayKwh * KG_CO2_PER_KWH).toFixed(2),
-      todayKwh: todayKwh.toFixed(2)
+      devices: String(devices),
+      litres: num(litres, 2),
+      bill: '$' + num(litres * WATER_BILL_RATE, 2),
+      co2: num(litres * CARBON_FACTOR, 2),
+      kwh: num(litres * ENERGY_FACTOR, 2),
+      people: Math.floor(litres / LITRES_PER_PERSON_PER_DAY).toLocaleString('en-IN'),
+      houses: Math.floor(litres / LITRES_PER_HOUSE_PER_DAY).toLocaleString('en-IN'),
+      months: String(months),
+      todayL: String(todayWater),
+      todayCo2: (todayWater * CARBON_FACTOR).toFixed(2),
+      todayKwh: (todayWater * ENERGY_FACTOR).toFixed(2)
     };
     for (var key in out) {
       var el = document.querySelector('[data-fig="' + key + '"]');
