@@ -138,9 +138,12 @@
 <div class="stat"><span class="fig" data-fig="devices">25</span><span class="lab">devices active</span></div>
 <div class="stat"><span class="fig">30%</span><span class="lab">reduction in consumption</span></div>
 <div class="stat"><span class="fig" data-fig="months">18</span><span class="lab">months active</span></div>
-<div class="stat"><span class="fig" data-fig="litres">1,25,338</span><span class="lab">litres of water saved</span></div>
-<div class="stat"><span class="fig" data-fig="co2">43.12</span><span class="lab">kg of CO&#8322; prevented</span></div>
-<div class="stat"><span class="fig" data-fig="kwh">75.20</span><span class="lab">kWh of energy conserved</span></div>
+<div class="stat"><span class="fig" data-fig="litres">1,25,382</span><span class="lab">litres of water saved</span></div>
+<div class="stat"><span class="fig" data-fig="co2">43.14</span><span class="lab">kg of CO&#8322; prevented</span></div>
+<div class="stat"><span class="fig" data-fig="kwh">75.23</span><span class="lab">kWh of energy conserved</span></div>
+<div class="stat"><span class="fig" data-fig="bill">$752</span><span class="lab">off water bills, at $0.006 a litre</span></div>
+<div class="stat"><span class="fig" data-fig="people">928</span><span class="lab">people&rsquo;s daily water, at 135 litres each</span></div>
+<div class="stat"><span class="fig" data-fig="houses">464</span><span class="lab">houses&rsquo; daily supply, at 270 litres each</span></div>
 </div>
 
 <p><a href="https://www.niriwatersolutions.com/">See the live dashboard on the NIRI site &nearr;</a></p>
@@ -221,6 +224,9 @@ International Journal of High School Research, 2026, Vol. 8 Issue 12, p. 70&ndas
   var LITRES_PER_DAY = 60;
   var KWH_PER_LITRE = 0.0006;
   var KG_CO2_PER_KWH = 0.5734;
+  var USD_PER_LITRE = 0.006;
+  var LITRES_PER_PERSON_DAY = 135;
+  var LITRES_PER_HOUSE_DAY = 270;
   var CALIB_AT = Date.parse('2026-10-22T19:00:00+05:30');
   var CALIB = 4228.04;
 
@@ -251,7 +257,10 @@ International Journal of High School Research, 2026, Vol. 8 Issue 12, p. 70&ndas
       litres: indian(litres),
       co2: (kwh * KG_CO2_PER_KWH).toFixed(2),
       kwh: kwh.toFixed(2),
-      months: String(months)
+      months: String(months),
+      bill: '$' + Math.round(litres * USD_PER_LITRE),
+      people: indian(litres / LITRES_PER_PERSON_DAY),
+      houses: indian(litres / LITRES_PER_HOUSE_DAY)
     };
     for (var key in out) {
       var el = document.querySelector('[data-fig="' + key + '"]');
